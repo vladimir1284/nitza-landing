@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { useTranslations, type Lang } from "../i18n/utils";
+import knifeCustomDev from "../assets/images/knife-custom-dev.png";
+import hourglassMvp from "../assets/images/hourglass-mvp.png";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="menu">
+  <div
+    class="max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant p-8 md:p-16 rounded-lg shadow-sm relative overflow-hidden"
+  >
+    <div class="absolute top-4 left-4 w-4 h-4 border-t border-l border-primary-container"></div>
+    <div class="absolute top-4 right-4 w-4 h-4 border-t border-r border-primary-container"></div>
+    <div class="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-primary-container"></div>
+    <div class="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-primary-container"></div>
+
+    <div class="text-center mb-12">
+      <h2 class="text-headline-md text-on-background font-serif italic">{t("menu.title")}</h2>
+      <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+    </div>
+
+    <div class="space-y-10 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+      <div>
+        <div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video">
+          <Image
+            alt={t("menu.item1.title")}
+            class="w-full h-full object-cover"
+            src={knifeCustomDev}
+            loading="lazy"
+            widths={[400, 640, 960]}
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </div>
+        <div class="flex items-baseline mb-2">
+          <h3 class="text-headline-sm text-on-background">{t("menu.item1.title")}</h3>
+          <div class="menu-leader-line"></div>
+          <span class="text-label-caps text-primary tracking-widest">{t("menu.item1.tag")}</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant italic">{t("menu.item1.desc")}</p>
+      </div>
+
+      <div>
+        <div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video">
+          <Image
+            alt={t("menu.item2.title")}
+            class="w-full h-full object-cover"
+            src={hourglassMvp}
+            loading="lazy"
+            widths={[400, 640, 960]}
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </div>
+        <div class="flex items-baseline mb-2">
+          <h3 class="text-headline-sm text-on-background">{t("menu.item2.title")}</h3>
+          <div class="menu-leader-line"></div>
+          <span class="text-label-caps text-primary tracking-widest">{t("menu.item2.tag")}</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant italic">{t("menu.item2.desc")}</p>
+      </div>
+
+      <div>
+        <div class="flex items-baseline mb-2">
+          <h3 class="text-headline-sm text-on-background">{t("menu.item3.title")}</h3>
+          <div class="menu-leader-line"></div>
+          <span class="text-label-caps text-primary tracking-widest">{t("menu.item3.tag")}</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant italic">{t("menu.item3.desc")}</p>
+      </div>
+    </div>
+  </div>
+</section>

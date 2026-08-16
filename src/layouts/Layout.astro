@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+import { getLocalizedPath, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+
+const canonicalPath = Astro.url.pathname;
+const alternateEs = getLocalizedPath("es", canonicalPath.replace(/^\/en\//, "/"));
+const alternateEn = getLocalizedPath("en", canonicalPath.replace(/^\/en\//, "/"));
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={new URL(canonicalPath, Astro.site)} />
+    <link rel="alternate" hreflang="es" href={new URL(alternateEs, Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(alternateEn, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternateEs, Astro.site)} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      // Runs before paint to avoid a flash of the wrong theme.
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (stored === "dark" || (!stored && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,52 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
+  <div
+    class="flex flex-col md:flex-row justify-between items-start w-full px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto"
+  >
+    <div class="mb-8 md:mb-0">
+      <span class="text-headline-md text-primary block mb-4">{t("nav.brand")}</span>
+      <p class="text-body-md text-on-surface-variant">{t("footer.copyright").replace("{year}", String(year))}</p>
+    </div>
+    <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+      <div class="flex flex-col gap-4">
+        <a
+          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href="#"
+        >
+          {t("footer.manifesto")}
+        </a>
+        <a
+          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href="#"
+        >
+          {t("footer.kitchen")}
+        </a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <a
+          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href="#"
+        >
+          {t("footer.privateDining")}
+        </a>
+        <a
+          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href="#"
+        >
+          {t("footer.legal")}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

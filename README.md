@@ -1,43 +1,45 @@
-# Astro Starter Kit: Minimal
+# Nitza Develop — Haute Cuisine Software Development
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Landing page for Nitza Develop, built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com) v4, and pnpm. Bilingual (es/en), light/dark theme, static output ready for Cloudflare Pages.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- **Astro 7** — static output, no server adapter needed.
+- **Tailwind CSS 4** — via `@tailwindcss/vite`, CSS-first `@theme` config in `src/styles/global.css`.
+- **i18n** — Astro's built-in routing. Spanish at `/`, English at `/en/`. Dictionaries in `src/i18n/ui.ts`.
+- **Theme** — `.dark` class on `<html>`, toggled client-side, persisted in `localStorage`, no flash on load.
+- **Images** — local assets under `src/assets/images/`, optimized at build time via `astro:assets` + `sharp` (requires `sharp` as a dependency).
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/images/     # source images (optimized at build time)
+├── components/        # Header, Hero, Team, Menu, Testimonials, Blog, Footer, theme/lang toggles
+├── i18n/               # ui.ts (dictionaries), utils.ts (lang helpers)
+├── layouts/Layout.astro
+├── pages/
+│   ├── index.astro     # Spanish (default locale)
+│   └── en/index.astro  # English
+└── styles/global.css   # design tokens, dark-mode overrides, ported typography scale
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command         | Action                                      |
+| :--------------- | :------------------------------------------- |
+| `pnpm install`   | Install dependencies                        |
+| `pnpm dev`       | Start dev server at `localhost:4321`        |
+| `pnpm build`     | Build static site to `./dist/`              |
+| `pnpm preview`   | Preview the production build locally        |
+| `pnpm astro check` | Type-check `.astro` files                |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deploying to Cloudflare
 
-## 🧞 Commands
+Static output (`dist/`), no adapter required. Simplest path: Cloudflare Pages dashboard → connect this repo → build command `pnpm build` → output directory `dist`.
 
-All commands are run from the root of the project, from a terminal:
+## Known follow-ups
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `astro.config.mjs` has a placeholder `site: 'https://example.com'` — update once the production domain is set (used for canonical/hreflang tags).
+- Team member headshots still point at ephemeral mockup URLs (`lh3.googleusercontent.com/aida...`) — swap for real photos or avatar treatment.
+- Dark-mode color values were inferred from the light Material-3-style palette in the original mockup (`reference-maqueta.html`), not specified in the source — worth a design review.

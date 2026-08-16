@@ -1,0 +1,62 @@
+---
+import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
+import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const home = getLocalizedPath(lang, "/");
+---
+
+<nav class="w-full top-0 sticky bg-background border-b border-outline-variant z-50">
+  <div
+    class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto"
+  >
+    <div class="flex items-center gap-4">
+      <span class="material-symbols-outlined text-primary" aria-hidden="true">restaurant_menu</span>
+      <a
+        class="text-headline-sm text-primary uppercase tracking-widest hover:text-primary transition-colors duration-300"
+        href={home}
+      >
+        {t("nav.brand")}
+      </a>
+    </div>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-label-caps text-primary border-b-2 border-primary pb-1" href={`${home}#hero`}>
+        {t("nav.home")}
+      </a>
+      <a
+        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        href={`${home}#team`}
+      >
+        {t("nav.team")}
+      </a>
+      <a
+        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        href={`${home}#menu`}
+      >
+        {t("nav.menu")}
+      </a>
+      <a
+        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        href={`${home}#tech`}
+      >
+        {t("nav.tech")}
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <LanguageToggle lang={lang} />
+      <ThemeToggle lang={lang} />
+      <a
+        class="inline-flex items-center justify-center px-6 py-3 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background hover:border-primary-container transition-all duration-300 rounded"
+        href={`${home}#reservation`}
+      >
+        {t("nav.reserve")}
+      </a>
+    </div>
+  </div>
+</nav>

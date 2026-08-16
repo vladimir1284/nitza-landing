@@ -1,0 +1,22 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const otherLang: Lang = lang === "es" ? "en" : "es";
+const currentPath = Astro.url.pathname.replace(/^\/en\//, "/").replace(/^\/en$/, "/");
+const otherPath = otherLang === "es" ? currentPath : `/en${currentPath}`;
+---
+
+<a
+  href={otherPath}
+  aria-label={t("lang.switch")}
+  class="inline-flex items-center justify-center w-10 h-10 rounded text-label-caps text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-300"
+>
+  {otherLang.toUpperCase()}
+</a>

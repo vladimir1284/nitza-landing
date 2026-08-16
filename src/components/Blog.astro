@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import { useTranslations, type Lang } from "../i18n/utils";
+import teamBanner from "../assets/images/microchip-tweezers.png";
+import cloche from "../assets/images/cloche.png";
+import knifeCustomDev from "../assets/images/knife-custom-dev.png";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const posts = [
+  {
+    tag: t("blog.post1.tag"),
+    title: t("blog.post1.title"),
+    desc: t("blog.post1.desc"),
+    img: teamBanner,
+  },
+  {
+    tag: t("blog.post2.tag"),
+    title: t("blog.post2.title"),
+    desc: t("blog.post2.desc"),
+    img: cloche,
+  },
+  {
+    tag: t("blog.post3.tag"),
+    title: t("blog.post3.title"),
+    desc: t("blog.post3.desc"),
+    img: knifeCustomDev,
+  },
+];
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="blog">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-16">
+      <h2 class="text-headline-md text-on-background font-serif italic">{t("blog.title")}</h2>
+      <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+      <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("blog.subtitle")}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      {
+        posts.map((post) => (
+          <div class="flex flex-col group">
+            <div class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30">
+              <Image
+                alt={post.title}
+                class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                src={post.img}
+                loading="lazy"
+                widths={[400, 640, 960]}
+                sizes="(min-width: 768px) 33vw, 100vw"
+              />
+            </div>
+            <span class="text-label-caps text-primary mb-2">{post.tag}</span>
+            <h3 class="text-headline-sm text-on-background mb-4">{post.title}</h3>
+            <p class="text-body-md text-on-surface-variant mb-6 grow">{post.desc}</p>
+            <a
+              class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
+              href="#"
+            >
+              {t("blog.readMore")}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

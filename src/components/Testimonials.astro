@@ -1,0 +1,41 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const testimonials = [
+  { quote: t("testimonials.quote1"), cite: t("testimonials.cite1") },
+  { quote: t("testimonials.quote2"), cite: t("testimonials.cite2") },
+];
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="testimonials">
+  <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-16">
+      <h2 class="text-headline-md text-on-background font-serif italic">{t("testimonials.title")}</h2>
+      <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+    </div>
+    <div class="space-y-16">
+      {
+        testimonials.map((item) => (
+          <div class="flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg mb-4" aria-hidden="true">
+              format_quote
+            </span>
+            <blockquote class="text-headline-sm font-serif italic text-on-background mb-6">{item.quote}</blockquote>
+            <div class="flex items-center gap-4">
+              <div class="h-px w-8 bg-outline-variant" />
+              <cite class="text-label-caps text-primary not-italic tracking-widest">{item.cite}</cite>
+              <div class="h-px w-8 bg-outline-variant" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

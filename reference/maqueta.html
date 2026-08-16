@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nitza Develop | Haute Cuisine Software Development</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#e5e2e3",
+                        "tertiary": "#5f5e5f",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#474647",
+                        "surface-container-low": "#f4f3f1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "primary-fixed": "#ffdea5",
+                        "secondary": "#5f5e5e",
+                        "on-background": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#efeeec",
+                        "tertiary-container": "#a7a5a6",
+                        "surface-container-high": "#e9e8e6",
+                        "background": "#faf9f7",
+                        "on-primary-container": "#4e3700",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4e4639",
+                        "primary-container": "#c5a059",
+                        "secondary-container": "#e5e2e1",
+                        "surface-dim": "#dadad8",
+                        "surface-tint": "#775a19",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface-container-highest": "#e3e2e0",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary": "#775a19",
+                        "on-secondary-container": "#656464",
+                        "surface-variant": "#e3e2e0",
+                        "outline": "#7f7667",
+                        "on-tertiary-fixed": "#1b1b1c",
+                        "primary-fixed-dim": "#e9c176",
+                        "on-primary-fixed": "#261900",
+                        "surface-bright": "#faf9f7",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c8c6c7",
+                        "on-primary-fixed-variant": "#5d4201",
+                        "outline-variant": "#d1c5b4",
+                        "error": "#ba1a1a",
+                        "surface": "#faf9f7",
+                        "on-tertiary-container": "#3b3b3c",
+                        "inverse-surface": "#2f3130",
+                        "inverse-primary": "#e9c176"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "gutter": "32px",
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .cloche-reveal {
+            animation: revealCloche 3s ease-in-out infinite alternate;
+        }
+        @keyframes revealCloche {
+            0% { transform: translateY(0) rotate(0); }
+            100% { transform: translateY(-20px) rotate(-5deg); }
+        }
+        
+        /* Typography Scale Implementations */
+        .text-display-lg-mobile { font-family: 'Playfair Display'; font-size: 40px; line-height: 48px; letter-spacing: -0.01em; font-weight: 700; }
+        .text-display-lg { font-family: 'Playfair Display'; font-size: 64px; line-height: 72px; letter-spacing: -0.02em; font-weight: 700; }
+        .text-headline-md { font-family: 'Playfair Display'; font-size: 32px; line-height: 40px; font-weight: 600; }
+        .text-headline-sm { font-family: 'Playfair Display'; font-size: 24px; line-height: 32px; font-weight: 600; }
+        .text-body-lg { font-family: 'Inter'; font-size: 18px; line-height: 28px; font-weight: 400; }
+        .text-body-md { font-family: 'Inter'; font-size: 16px; line-height: 24px; font-weight: 400; }
+        .text-label-caps { font-family: 'Inter'; font-size: 12px; line-height: 16px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; }
+        
+        .gold-line {
+            position: relative;
+        }
+        .gold-line::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #c5a059;
+        }
+        
+        .menu-leader-line {
+            flex-grow: 1;
+            border-bottom: 1px dotted #7f7667;
+            margin: 0 16px 8px 16px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Shared Component) -->
+<nav class="w-full top-0 sticky bg-background border-b border-outline-variant z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">restaurant_menu</span>
+<a class="text-headline-sm text-primary uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#">Nitza Develop</a>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-label-caps text-primary border-b-2 border-primary pb-1" href="#hero">Inicio</a>
+<a class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#team">Brigada</a>
+<a class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#menu">Menú</a>
+<a class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#tech">Ingredientes</a>
+</div>
+<div>
+<a class="inline-flex items-center justify-center px-6 py-3 bg-on-background text-primary-fixed border border-on-background text-label-caps hover:bg-primary-container hover:text-on-background hover:border-primary-container transition-all duration-300 rounded" href="#reservation">Reserve</a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- 1. Hero Section -->
+<section class="py-section-gap flex flex-col items-center text-center" id="hero">
+<div class="max-w-3xl mb-12">
+<h1 class="text-display-lg-mobile md:text-display-lg text-on-background mb-6 gold-line mx-auto before:content-[''] before:block before:w-16 before:h-1 before:bg-primary-container before:mx-auto before:mb-8">Un software a la medida del gusto más exigente.</h1>
+<p class="text-body-lg text-on-surface-variant mt-10">Transformamos tus necesidades de negocio en recetas digitales de alta precisión. La sazón del buen código, servida a tiempo.</p>
+<div class="mt-12">
+<a class="inline-flex items-center justify-center px-8 py-4 bg-on-background text-primary-fixed border border-on-background text-label-caps hover:bg-primary-container hover:text-on-background transition-all duration-300 rounded" href="#reservation">
+                        Pide una cata inicial
+                    </a>
+</div>
+</div>
+<!-- Visual Concept -->
+<div class="relative w-full max-w-2xl aspect-[16/9] mt-8 group cursor-pointer overflow-hidden rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none"></div>
+<!-- Cloche Illustration (Conceptual) -->
+<div class="relative z-20 flex flex-col items-center"><img alt="Digital Haute Cuisine Cloche" class="w-full h-full object-cover rounded-lg shadow-2xl cloche-reveal" src="https://lh3.googleusercontent.com/aida/AP1WRLtubu62WZdP4cs9Kleo2620Gkm0jf7P2yWjYM1E3DlcL6ge38_Ez2E3Y2Cy3dDObIwSYI84rwLtDkH6ZujOECJFzvcMKoVRcm2kiMr2MMskn6oebxpYJv5JB_eTy1jCNGpVf0bBCdU42z-Tzda4sIM4FofrZLpAeP7Jyzy81vhuOHm8hghH-KcDfmaqkZfQPwMIntfkLfUmsFkkE1HtfMi3se1vYHzmO4MQy2ycBibkD5tqa9tJyYdcfpTi"/></div>
+<!-- Placeholder Background for texture -->
+<div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-multiply" data-alt="A macro shot of a luxurious dark slate kitchen counter surface with subtle matte gold dust scattered elegantly. Minimalist, high-end, dramatic directional lighting highlighting the texture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqTowE7tveilvQdNGVyDAqd7-OTcnWTzb_z0ycdJrEXBCG8Doiyzd-2oMYrB86V6eP2QInIiH9_IPzfvnX-936t6SRKz230bjNBVBUdkKs42gVf2Zlyie7MQiDqRblQ2tzjISoVF5IOOReWA62jzlZcdiIRdxXgrglLPuVdlxEYMOoAmxq7M8xzDfshY0ZJJXo7mHAWItufPNk60tpc8NL0kaL3mS_wAN1rJVKZDRblun-gFGW_-JK1g')"></div>
+</div>
+</section>
+<!-- 2. La Brigada de Cocina (The Team) -->
+<section class="py-section-gap border-t border-outline-variant/30" id="team">
+<div class="text-center mb-16">
+<h2 class="text-headline-md text-on-background gold-line mx-auto">La Brigada de Cocina</h2>
+<p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">Cada línea de código es elaborada por especialistas en su estación.</p>
+</div>
+<div class="mb-16 rounded-lg overflow-hidden border border-outline-variant/30 aspect-[21/9]"><img alt="Precision in development" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida/AP1WRLuKoZO8R8IZHBYVMF-8HWPB0RLbPG5kMdXDiK9tILDxcYPEmisrHmCiIpBEm0AQBOKK-Q0Vvnd8XB4tkJhkK27olXTusPqKugm4KajQSOiHAug-Hnfo717wKlBvkNs1iWE3FvpkYeDvgxpgbFoUu_D__vBr4-97BcRKVvpt9-rm4T9SUmiaZ9p1leqGzWNHTPgf-pF2iKzLczWSo2jTs7z8PgpGScOP0nL-0LyKU0fu7FUtBGmF9WvivCb3"/></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Team Member 1 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
+<div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-lg"><img alt="Chef de Cuisine" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Bdbne5i7quySISmywEema5cQfPPfopfII2pOAuUpJH3No439df39oYOedgZXTPeo-IR3TIHOAgrM93JRqe47mjMR4OsS8YXEqvVCfdbT_AedG1bl5nvJ89UuKcTk00ZfKzL8L9bHKUlbOXv6Rzg9XQeAhQrzdf9q_bHjImKzMloT8whCCbUcx9xHZ0dOizrx_Fh8NYZu-WC1MABZpZKE3bwuMY5mocEM0czzLbfXqC3SxHpJS91XZA"/></div>
+<h3 class="text-headline-sm text-on-background mb-2">Chef de Cuisine</h3>
+<span class="text-label-caps text-primary mb-4 block">Tech Lead</span>
+<p class="text-body-md text-on-surface-variant">Diseña la estructura global y define los ingredientes clave de cada arquitectura.</p>
+</div>
+<!-- Team Member 2 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
+<div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-lg"><img alt="Sous Chef" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfg2BoQAunuVBkivIYSHA62S-AqWFe2V31tuHEcpQzrHe9J4xoeiO_PFeePx1MHbmPTdF4HcL-bAJZA7hYB6OOinSYzMBh9Ol51sS8nId3NHKl7r8ZHjd-Q26pFT4zSa8rxPbBfCB54xZdtang_3L4Z33h6Eyw6MblrMbZB9JRuyKGvso-1wrRMu3pr1lnivmvTy7Op-Pxu1BpwoGancL9YiulAi89qK2kQLYF1xSMNZSet_efNi1Wog"/></div>
+<h3 class="text-headline-sm text-on-background mb-2">Sous Chef</h3>
+<span class="text-label-caps text-primary mb-4 block">Backend</span>
+<p class="text-body-md text-on-surface-variant">Encargados de la cocción lenta, motores de base de datos, seguridad y rendimiento.</p>
+</div>
+<!-- Team Member 3 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
+<div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-lg"><img alt="Pastry Chef" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSBhgE4ti4Q2T1WmSx01HmDLD-in9-VGpOz7YDGx8WgodR0Mt2nsQfUQnmYJEjvEuAh6wM4Kjg_rlOFpBViD1zgTVaLyQAP7Sj2zfMjuzp0IgJxBUE59yG0y0nKFQVDfgoHHX1X5DUQoHfoLMrP50BKlYAOpj-_b4vYAVNqkTMFVzXiXnAQsyQIinq56kCRMTyMT6gM-8OM1hznpXDYED3TQaEHv-FRQ3rUw5EnJhALztKlwi72GimIg"/></div>
+<h3 class="text-headline-sm text-on-background mb-2">Pastry Chef</h3>
+<span class="text-label-caps text-primary mb-4 block">Frontend / UX</span>
+<p class="text-body-md text-on-surface-variant">Cuida la estética, el emplatado, la interactividad y la experiencia visual.</p>
+</div>
+<!-- Team Member 4 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
+<div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-lg"><img alt="Sommelier" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTU6lD5pJPQDCB1_PqOilGReIxKXo-lGdGG38I-gIbfnlIwCvNLk0sMN8h328GgUwRT5XcS99lp0lPkhpPmRbrGRTv7EF6U5cA2MzlrUkv3EWw1z7V-b69onX1um_M9I7vByz-SvTpIxbzbbBRltfOfy0O988VYiwjRg7prSKkmtf6tHyoGGvAGCSRmwVOQZ7AxsKkC5t1Vl0k8eJdd6VlLh4q6YkjOnIpoTFHKZQgKK5kL69prGgYWw"/></div>
+<h3 class="text-headline-sm text-on-background mb-2">Sommelier</h3>
+<span class="text-label-caps text-primary mb-4 block">Quality Assurance</span>
+<p class="text-body-md text-on-surface-variant">Garantiza el maridaje perfecto y la pureza del producto antes de servir.</p>
+</div>
+</div>
+</section>
+<!-- 3. El Menú de la Casa (Services) -->
+<section class="py-section-gap border-t border-outline-variant/30" id="menu">
+<div class="max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant p-8 md:p-16 rounded-lg shadow-sm relative overflow-hidden">
+<!-- Decorative Corner Accents -->
+<div class="absolute top-4 left-4 w-4 h-4 border-t border-l border-primary-container"></div>
+<div class="absolute top-4 right-4 w-4 h-4 border-t border-r border-primary-container"></div>
+<div class="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-primary-container"></div>
+<div class="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-primary-container"></div>
+<div class="text-center mb-12">
+<h2 class="text-headline-md text-on-background font-serif italic">El Menú de la Casa</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto mt-4"></div>
+</div>
+<div class="space-y-10 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+<!-- Menu Item 1 -->
+<div><div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video"><img alt="Custom Development Precision" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLsonpok_EOMIJCKeNP7bvR8os2AOtqYkxViLwyt3FsIqY8uenJBMQTzg3PU5C9JD-Pm78fuxi7JTTagVvS_TwvgP-rVuWIAeHKrCLKX-nz5GE_Mf0XWWMkTXtjTs8IMaa2pYQGSh57_XnBtv1OS-FHXXeu3sIJJtdD2YyE7-0XX8AZbcMhhfbP-ip3kqm3wCN7MQGFKCyXBNsPP4y-2b6MsZ91AY0kWOKVXMBznG4Fkazi8qkM8RimApU8X"/></div>
+<div class="flex items-baseline mb-2">
+<h3 class="text-headline-sm text-on-background">Especialidad de la Casa</h3>
+<div class="menu-leader-line"></div>
+<span class="text-label-caps text-primary tracking-widest">Custom Dev</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">Aplicaciones a la medida diseñadas desde cero con ingredientes técnicos de primer nivel. Ideal para paladares corporativos exigentes.</p>
+</div>
+<!-- Menu Item 2 -->
+<div><div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video"><img alt="Rapid Prototyping Efficiency" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvpf4BLu4GpFt-cG4O3pIF05n_aGkhNCVdJFUHUexqV45AmVh22hTSjvR1Vm5L5Zb9LtIp343xXmjk64hTzv8psBGOt0kWvQ7EzSJHGhCTwlcQlTudosqt5g7HJL0PZKb0YiTlZOlwBb-Vx6ct9TlDbfOO4kpqFpEV5zk9sNqQ1i5LSTp5ZL9Gi733kk_5Se9aizmP6uuxZ5lAa5TX9EGIK40RecIyTADbn3IUAbAz0fKK1uPnJXdRsbM8r"/></div>
+<div class="flex items-baseline mb-2">
+<h3 class="text-headline-sm text-on-background">Cocina al Minuto</h3>
+<div class="menu-leader-line"></div>
+<span class="text-label-caps text-primary tracking-widest">MVP / Proto</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">Desarrollo ágil y rápido para validar conceptos en el mercado. Servido caliente y listo para iterar.</p>
+</div>
+<!-- Menu Item 3 -->
+<div>
+<div class="flex items-baseline mb-2">
+<h3 class="text-headline-sm text-on-background">Cocción Lenta</h3>
+<div class="menu-leader-line"></div>
+<span class="text-label-caps text-primary tracking-widest">Support</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">Mantenimiento preventivo, auditorías de seguridad y refactorización. El cuidado continuo que su plataforma merece.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<section class="py-section-gap border-t border-outline-variant/30" id="testimonials">
+<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="text-headline-md text-on-background font-serif italic">Comentarios de nuestros Comensales</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto mt-4"></div>
+</div>
+<div class="space-y-16">
+<!-- Testimonial 1 -->
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg mb-4">format_quote</span>
+<blockquote class="text-headline-sm font-serif italic text-on-background mb-6">
+          "La precisión técnica de su Brigada es comparable a una cocina de tres estrellas Michelin. Nitza Develop transformó nuestra infraestructura con una elegancia asombrosa."
+        </blockquote>
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+<cite class="text-label-caps text-primary not-italic tracking-widest">CEO, TechGlobal</cite>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg mb-4">format_quote</span>
+<blockquote class="text-headline-sm font-serif italic text-on-background mb-6">
+          "Su 'Cocina al Minuto' nos permitió validar nuestro producto en tiempo récord sin sacrificar ni un ápice de calidad visual."
+        </blockquote>
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+<cite class="text-label-caps text-primary not-italic tracking-widest">Fundadora, ArtVibe</cite>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap border-t border-outline-variant/30" id="blog">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="text-headline-md text-on-background font-serif italic">Crónicas de la Cocina</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto mt-4"></div>
+<p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">Notas de cata y estudios técnicos sobre el arte de la ingeniería de software.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Blog Post 1 -->
+<div class="flex flex-col group">
+<div class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30">
+<img alt="Escalabilidad" class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqTowE7tveilvQdNGVyDAqd7-OTcnWTzb_z0ycdJrEXBCG8Doiyzd-2oMYrB86V6eP2QInIiH9_IPzfvnX-936t6SRKz230bjNBVBUdkKs42gVf2Zlyie7MQiDqRblQ2tzjISoVF5IOOReWA62jzlZcdiIRdxXgrglLPuVdlxEYMOoAmxq7M8xzDfshY0ZJJXo7mHAWItufPNk60tpc8NL0kaL3mS_wAN1rJVKZDRblun-gFGW_-JK1g"/>
+</div>
+<span class="text-label-caps text-primary mb-2">Estudio de Receta</span>
+<h3 class="text-headline-sm text-on-background mb-4">El Secreto de la Escalabilidad en 3 Tiempos</h3>
+<p class="text-body-md text-on-surface-variant mb-6 flex-grow">Cómo preparar una infraestructura que soporte el crecimiento sin perder la esencia ni el rendimiento bajo presión.</p>
+<a class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300" href="#">Leer Crónica</a>
+</div>
+<!-- Blog Post 2 -->
+<div class="flex flex-col group">
+<div class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30">
+<img alt="Refactorización" class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLuKoZO8R8IZHBYVMF-8HWPB0RLbPG5kMdXDiK9tILDxcYPEmisrHmCiIpBEm0AQBOKK-Q0Vvnd8XB4tkJhkK27olXTusPqKugm4KajQSOiHAug-Hnfo717wKlBvkNs1iWE3FvpkYeDvgxpgbFoUu_D__vBr4-97BcRKVvpt9-rm4T9SUmiaZ9p1leqGzWNHTPgf-pF2iKzLczWSo2jTs7z8PgpGScOP0nL-0LyKU0fu7FUtBGmF9WvivCb3"/>
+</div>
+<span class="text-label-caps text-primary mb-2">Nota de Cata</span>
+<h3 class="text-headline-sm text-on-background mb-4">Refactorización: El Arte de Limpiar la Estación</h3>
+<p class="text-body-md text-on-surface-variant mb-6 flex-grow">La importancia de mantener un código limpio para que la creatividad fluya sin obstáculos en cada nuevo despliegue.</p>
+<a class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300" href="#">Leer Crónica</a>
+</div>
+<!-- Blog Post 3 -->
+<div class="flex flex-col group">
+<div class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30">
+<img alt="Seguridad" class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLsonpok_EOMIJCKeNP7bvR8os2AOtqYkxViLwyt3FsIqY8uenJBMQTzg3PU5C9JD-Pm78fuxi7JTTagVvS_TwvgP-rVuWIAeHKrCLKX-nz5GE_Mf0XWWMkTXtjTs8IMaa2pYQGSh57_XnBtv1OS-FHXXeu3sIJJtdD2YyE7-0XX8AZbcMhhfbP-ip3kqm3wCN7MQGFKCyXBNsPP4y-2b6MsZ91AY0kWOKVXMBznG4Fkazi8qkM8RimApU8X"/>
+</div>
+<span class="text-label-caps text-primary mb-2">Estudio de Receta</span>
+<h3 class="text-headline-sm text-on-background mb-4">Seguridad: El Ingrediente Invisible</h3>
+<p class="text-body-md text-on-surface-variant mb-6 flex-grow">Blindando sus datos con las técnicas más sofisticadas de la industria, sin comprometer la experiencia del usuario.</p>
+<a class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300" href="#">Leer Crónica</a>
+</div>
+</div>
+</div>
+</section><footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="text-headline-md text-primary block mb-4">Nitza Develop</span>
+<p class="text-body-md text-on-surface-variant">© 2024 Nitza Develop. All rights reserved.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 md:gap-16">
+<div class="flex flex-col gap-4">
+<a class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out" href="#">The Manifesto</a>
+<a class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out" href="#">The Kitchen</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out" href="#">Private Dining</a>
+<a class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out" href="#">Legal</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

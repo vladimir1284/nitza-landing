@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+/* Enable `dark:` variants via a `.dark` class on <html>, toggled by ThemeToggle.astro */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Color tokens ported from the Material-3-style palette in maqueta.html (light values).
+ * Dark values are inferred using standard M3 tonal-role conventions, reusing the
+ * -fixed/-fixed-dim/-fixed-variant roles already present in the source palette
+ * (those roles exist specifically to stay constant across light/dark schemes).
+ * Not in the original maqueta -- worth a visual check against real brand dark-mode intent.
+ */
+:root {
+  --color-primary: #775a19;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #c5a059;
+  --color-on-primary-container: #4e3700;
+
+  --color-secondary: #5f5e5e;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e5e2e1;
+  --color-on-secondary-container: #656464;
+
+  --color-tertiary: #5f5e5f;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #a7a5a6;
+  --color-on-tertiary-container: #3b3b3c;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-background: #faf9f7;
+  --color-on-background: #1a1c1b;
+  --color-surface: #faf9f7;
+  --color-on-surface: #1a1c1b;
+  --color-surface-variant: #e3e2e0;
+  --color-on-surface-variant: #4e4639;
+
+  --color-outline: #7f7667;
+  --color-outline-variant: #d1c5b4;
+
+  --color-surface-dim: #dadad8;
+  --color-surface-bright: #faf9f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f3f1;
+  --color-surface-container: #efeeec;
+  --color-surface-container-high: #e9e8e6;
+  --color-surface-container-highest: #e3e2e0;
+
+  --color-inverse-surface: #2f3130;
+  --color-inverse-on-surface: #f1f1ef;
+  --color-inverse-primary: #e9c176;
+  --color-surface-tint: #775a19;
+
+  --color-primary-fixed: #ffdea5;
+  --color-primary-fixed-dim: #e9c176;
+  --color-on-primary-fixed: #261900;
+  --color-on-primary-fixed-variant: #5d4201;
+
+  --color-secondary-fixed: #e5e2e1;
+  --color-secondary-fixed-dim: #c8c6c5;
+  --color-on-secondary-fixed: #1c1b1b;
+  --color-on-secondary-fixed-variant: #474646;
+
+  --color-tertiary-fixed: #e5e2e3;
+  --color-tertiary-fixed-dim: #c8c6c7;
+  --color-on-tertiary-fixed: #1b1b1c;
+  --color-on-tertiary-fixed-variant: #474647;
+}
+
+.dark {
+  --color-primary: #e9c176;
+  --color-on-primary: #452f00;
+  --color-primary-container: #5d4201;
+  --color-on-primary-container: #ffdea5;
+
+  --color-secondary: #c8c6c5;
+  --color-on-secondary: #313030;
+  --color-secondary-container: #474646;
+  --color-on-secondary-container: #e5e2e1;
+
+  --color-tertiary: #c8c6c7;
+  --color-on-tertiary: #323132;
+  --color-tertiary-container: #474647;
+  --color-on-tertiary-container: #e5e2e3;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-background: #121312;
+  --color-on-background: #e3e2e0;
+  --color-surface: #121312;
+  --color-on-surface: #e3e2e0;
+  --color-surface-variant: #4e4639;
+  --color-on-surface-variant: #d1c5b4;
+
+  --color-outline: #998f7e;
+  --color-outline-variant: #4e4639;
+
+  --color-surface-dim: #121312;
+  --color-surface-bright: #3a3a38;
+  --color-surface-container-lowest: #0d0e0d;
+  --color-surface-container-low: #1a1c1b;
+  --color-surface-container: #1e201f;
+  --color-surface-container-high: #282a29;
+  --color-surface-container-highest: #333433;
+
+  --color-inverse-surface: #e3e2e0;
+  --color-inverse-on-surface: #2f3130;
+  --color-inverse-primary: #775a19;
+  --color-surface-tint: #e9c176;
+
+  /* fixed/-dim/-variant roles stay constant across schemes by design */
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-on-primary-container: var(--color-on-primary-container);
+
+  --color-secondary: var(--color-secondary);
+  --color-on-secondary: var(--color-on-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-on-secondary-container: var(--color-on-secondary-container);
+
+  --color-tertiary: var(--color-tertiary);
+  --color-on-tertiary: var(--color-on-tertiary);
+  --color-tertiary-container: var(--color-tertiary-container);
+  --color-on-tertiary-container: var(--color-on-tertiary-container);
+
+  --color-error: var(--color-error);
+  --color-on-error: var(--color-on-error);
+  --color-error-container: var(--color-error-container);
+  --color-on-error-container: var(--color-on-error-container);
+
+  --color-background: var(--color-background);
+  --color-on-background: var(--color-on-background);
+  --color-surface: var(--color-surface);
+  --color-on-surface: var(--color-on-surface);
+  --color-surface-variant: var(--color-surface-variant);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+
+  --color-surface-dim: var(--color-surface-dim);
+  --color-surface-bright: var(--color-surface-bright);
+  --color-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+
+  --color-inverse-surface: var(--color-inverse-surface);
+  --color-inverse-on-surface: var(--color-inverse-on-surface);
+  --color-inverse-primary: var(--color-inverse-primary);
+  --color-surface-tint: var(--color-surface-tint);
+
+  --color-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--color-on-primary-fixed-variant);
+
+  --color-secondary-fixed: var(--color-secondary-fixed);
+  --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--color-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--color-on-secondary-fixed-variant);
+
+  --color-tertiary-fixed: var(--color-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--color-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--color-on-tertiary-fixed-variant);
+
+  /* Spacing scale from maqueta.html */
+  --spacing-unit: 8px;
+  --spacing-gutter: 32px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --spacing-section-gap: 120px;
+  --spacing-container-max: 1280px;
+
+  /* Radius scale from maqueta.html */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Font families from maqueta.html */
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  /* Required by Google's Material Symbols variable font to render as icons */
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Typography scale (ported 1:1 from maqueta.html's hand-tuned sizes) */
+  .text-display-lg-mobile {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .text-display-lg {
+    font-family: var(--font-display);
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .text-headline-md {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .text-headline-sm {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  .text-body-lg {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .text-body-md {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .text-label-caps {
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .gold-line {
+    position: relative;
+  }
+  .gold-line::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-primary-container);
+  }
+
+  .menu-leader-line {
+    flex-grow: 1;
+    border-bottom: 1px dotted var(--color-outline);
+    margin: 0 16px 8px 16px;
+  }
+
+  .cloche-reveal {
+    animation: revealCloche 3s ease-in-out infinite alternate;
+  }
+  @keyframes revealCloche {
+    0% {
+      transform: translateY(0) rotate(0);
+    }
+    100% {
+      transform: translateY(-20px) rotate(-5deg);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloche-reveal {
+    animation: none;
+  }
+}
