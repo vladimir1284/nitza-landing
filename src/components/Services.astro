@@ -1,0 +1,87 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = [
+  { icon: "smartphone", label: t("services.cat.mobile"), items: t("services.cat.mobile.items") },
+  { icon: "smart_toy", label: t("services.cat.ai"), items: t("services.cat.ai.items") },
+  { icon: "code", label: t("services.cat.backend"), items: t("services.cat.backend.items") },
+  { icon: "palette", label: t("services.cat.frontend"), items: t("services.cat.frontend.items") },
+  { icon: "database", label: t("services.cat.data"), items: t("services.cat.data.items") },
+  { icon: "cloud", label: t("services.cat.devops"), items: t("services.cat.devops.items") },
+  { icon: "account_tree", label: t("services.cat.architecture"), items: t("services.cat.architecture.items") },
+  { icon: "verified_user", label: t("services.cat.quality"), items: t("services.cat.quality.items") },
+].map((cat) => ({ ...cat, items: cat.items.split(", ") }));
+
+const cartaItems = [
+  { icon: "phone_iphone", title: t("services.carta.item1.title"), desc: t("services.carta.item1.desc") },
+  { icon: "smart_toy", title: t("services.carta.item2.title"), desc: t("services.carta.item2.desc") },
+  { icon: "shopping_cart", title: t("services.carta.item3.title"), desc: t("services.carta.item3.desc") },
+  { icon: "sync_alt", title: t("services.carta.item4.title"), desc: t("services.carta.item4.desc") },
+  { icon: "bolt", title: t("services.carta.item5.title"), desc: t("services.carta.item5.desc") },
+  { icon: "security", title: t("services.carta.item6.title"), desc: t("services.carta.item6.desc") },
+  { icon: "api", title: t("services.carta.item7.title"), desc: t("services.carta.item7.desc") },
+  { icon: "bar_chart", title: t("services.carta.item8.title"), desc: t("services.carta.item8.desc") },
+];
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="tech">
+  <div class="text-center mb-16">
+    <h2 class="text-headline-md text-on-background gold-line mx-auto">{t("services.title")}</h2>
+    <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("services.subtitle")}</p>
+  </div>
+
+  <div class="mb-20">
+    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+      <h3 class="text-headline-sm text-on-background">{t("services.residente.title")}</h3>
+      <span class="text-label-caps text-primary tracking-widest">{t("services.residente.tag")}</span>
+    </div>
+    <p class="text-body-md text-on-surface-variant italic mb-10 max-w-2xl">{t("services.residente.desc")}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      {
+        categories.map((cat) => (
+          <div class="bg-surface-container-low p-6 border border-outline-variant rounded-lg">
+            <span class="material-symbols-outlined text-primary mb-3 block" aria-hidden="true">
+              {cat.icon}
+            </span>
+            <h4 class="text-label-caps text-on-background mb-3">{cat.label}</h4>
+            <div class="flex flex-wrap gap-2">
+              {cat.items.map((item) => (
+                <span class="text-body-md text-on-surface-variant px-3 py-1 border border-outline-variant/50 rounded-full">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div>
+    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+      <h3 class="text-headline-sm text-on-background">{t("services.carta.title")}</h3>
+      <span class="text-label-caps text-primary tracking-widest">{t("services.carta.tag")}</span>
+    </div>
+    <p class="text-body-md text-on-surface-variant italic mb-10 max-w-2xl">{t("services.carta.desc")}</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      {
+        cartaItems.map((item) => (
+          <div class="bg-surface-container-low p-6 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300">
+            <span class="material-symbols-outlined text-primary mb-3 block" aria-hidden="true">
+              {item.icon}
+            </span>
+            <h4 class="text-headline-sm text-on-background mb-2">{item.title}</h4>
+            <p class="text-body-md text-on-surface-variant">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
