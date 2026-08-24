@@ -1,9 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import { useTranslations, type Lang } from "../i18n/utils";
-import teamBanner from "../assets/images/microchip-tweezers.png";
-import cloche from "../assets/images/cloche.png";
-import knifeCustomDev from "../assets/images/knife-custom-dev.png";
 
 interface Props {
   lang: Lang;
@@ -12,26 +10,9 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const posts = [
-  {
-    tag: t("blog.post1.tag"),
-    title: t("blog.post1.title"),
-    desc: t("blog.post1.desc"),
-    img: teamBanner,
-  },
-  {
-    tag: t("blog.post2.tag"),
-    title: t("blog.post2.title"),
-    desc: t("blog.post2.desc"),
-    img: cloche,
-  },
-  {
-    tag: t("blog.post3.tag"),
-    title: t("blog.post3.title"),
-    desc: t("blog.post3.desc"),
-    img: knifeCustomDev,
-  },
-];
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <section class="py-section-gap border-t border-outline-variant/30" id="blog">
@@ -45,28 +26,38 @@ const posts = [
       {
         posts.map((post) => (
           <div class="flex flex-col group">
-            <div class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30">
-              <Image
-                alt={post.title}
-                class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
-                src={post.img}
-                loading="lazy"
-                widths={[400, 640, 960]}
-                sizes="(min-width: 768px) 33vw, 100vw"
-              />
-            </div>
-            <span class="text-label-caps text-primary mb-2">{post.tag}</span>
-            <h3 class="text-headline-sm text-on-background mb-4">{post.title}</h3>
-            <p class="text-body-md text-on-surface-variant mb-6 grow">{post.desc}</p>
+            <a href={`/blog/${post.id}`} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
+              {post.data.heroImage && (
+                <Image
+                  alt={post.data.title}
+                  class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                  src={post.data.heroImage}
+                  loading="lazy"
+                  widths={[400, 640, 960]}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                />
+              )}
+            </a>
+            <span class="text-label-caps text-primary mb-2">{post.data.category}</span>
+            <h3 class="text-headline-sm text-on-background mb-4">{post.data.title}</h3>
+            <p class="text-body-md text-on-surface-variant mb-6 grow">{post.data.description}</p>
             <a
               class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
-              href="#"
+              href={`/blog/${post.id}`}
             >
               {t("blog.readMore")}
             </a>
           </div>
         ))
       }
+    </div>
+    <div class="text-center mt-16">
+      <a
+        href="/blog"
+        class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded"
+      >
+        {t("blog.viewAll")}
+      </a>
     </div>
   </div>
 </section>

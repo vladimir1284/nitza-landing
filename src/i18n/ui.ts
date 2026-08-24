@@ -16,6 +16,7 @@ export const ui = {
     "nav.team": "Brigada",
     "nav.menu": "Menú",
     "nav.tech": "Ingredientes",
+    "nav.blog": "Crónicas",
     "nav.reserve": "Reserve",
 
     "hero.title": "Un software a la medida del gusto más exigente.",
@@ -111,19 +112,8 @@ export const ui = {
 
     "blog.title": "Crónicas de la Cocina",
     "blog.subtitle": "Notas de cata y estudios técnicos sobre el arte de la ingeniería de software.",
-    "blog.post1.tag": "Estudio de Receta",
-    "blog.post1.title": "El Secreto de la Escalabilidad en 3 Tiempos",
-    "blog.post1.desc":
-      "Cómo preparar una infraestructura que soporte el crecimiento sin perder la esencia ni el rendimiento bajo presión.",
-    "blog.post2.tag": "Nota de Cata",
-    "blog.post2.title": "Refactorización: El Arte de Limpiar la Estación",
-    "blog.post2.desc":
-      "La importancia de mantener un código limpio para que la creatividad fluya sin obstáculos en cada nuevo despliegue.",
-    "blog.post3.tag": "Estudio de Receta",
-    "blog.post3.title": "Seguridad: El Ingrediente Invisible",
-    "blog.post3.desc":
-      "Blindando sus datos con las técnicas más sofisticadas de la industria, sin comprometer la experiencia del usuario.",
     "blog.readMore": "Leer Crónica",
+    "blog.viewAll": "Ver todas las crónicas",
 
     "footer.copyright": "© {year} Nitza Develop. Todos los derechos reservados.",
     "footer.manifesto": "El Manifiesto",
@@ -144,6 +134,7 @@ export const ui = {
     "nav.team": "Brigade",
     "nav.menu": "Menu",
     "nav.tech": "Ingredients",
+    "nav.blog": "Chronicles",
     "nav.reserve": "Reserve",
 
     "hero.title": "Software tailored to the most demanding taste.",
@@ -237,19 +228,8 @@ export const ui = {
 
     "blog.title": "Chronicles of the Kitchen",
     "blog.subtitle": "Tasting notes and technical studies on the art of software engineering.",
-    "blog.post1.tag": "Recipe Study",
-    "blog.post1.title": "The Secret to Scalability in 3 Courses",
-    "blog.post1.desc":
-      "How to prepare an infrastructure that supports growth without losing its essence or performance under pressure.",
-    "blog.post2.tag": "Tasting Note",
-    "blog.post2.title": "Refactoring: The Art of Cleaning the Station",
-    "blog.post2.desc":
-      "Why keeping code clean lets creativity flow without friction with every new deployment.",
-    "blog.post3.tag": "Recipe Study",
-    "blog.post3.title": "Security: The Invisible Ingredient",
-    "blog.post3.desc":
-      "Shielding your data with the industry's most sophisticated techniques, without compromising user experience.",
     "blog.readMore": "Read Chronicle",
+    "blog.viewAll": "View all chronicles",
 
     "footer.copyright": "© {year} Nitza Develop. All rights reserved.",
     "footer.manifesto": "The Manifesto",

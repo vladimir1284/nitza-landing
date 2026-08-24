@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "es";
+const t = useTranslations(lang);
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout lang={lang} title={`${t("blog.title")} | Nitza Develop`} description={t("blog.subtitle")}>
+  <Header lang={lang} />
+  <main class="py-section-gap">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16">
+        <h1 class="text-headline-md text-on-background font-serif italic">{t("blog.title")}</h1>
+        <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+        <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("blog.subtitle")}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        {
+          posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              category={post.data.category}
+              categoryUrl={`/blog/category/${post.data.categorySlug}`}
+              url={`/blog/${post.id}`}
+              pubDate={post.data.pubDate}
+              readingTime={post.data.readingTime}
+              heroImage={post.data.heroImage}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</Layout>

@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/ui/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage, category, categorySlug, readingTime } = Astro.props;
+const lang = "es";
+---
+
+<Layout lang={lang} title={`${title} | Nitza Develop`} description={description}>
+  <Header lang={lang} />
+  <article class="py-section-gap">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-3xl mx-auto mb-10">
+        <a
+          href="/blog"
+          class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        >
+          ← Volver al Blog
+        </a>
+      </div>
+
+      {
+        heroImage && (
+          <div class="max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-outline-variant/30 aspect-video">
+            <Image
+              alt={title}
+              class="w-full h-full object-cover"
+              src={heroImage}
+              widths={[640, 960, 1400]}
+              sizes="(min-width: 1024px) 900px, 100vw"
+            />
+          </div>
+        )
+      }
+
+      <header class="max-w-3xl mx-auto mb-12 text-center">
+        <a href={`/blog/category/${categorySlug}`} class="text-label-caps text-primary hover:underline underline-offset-4">
+          {category}
+        </a>
+        <h1 class="text-headline-md md:text-display-lg-mobile text-on-background font-serif italic mt-4 mb-6">
+          {title}
+        </h1>
+        <div class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal flex items-center justify-center gap-2">
+          <FormattedDate date={pubDate} />
+          {updatedDate && <span>· Actualizado <FormattedDate date={updatedDate} /></span>}
+          {readingTime && <span>· {readingTime} min de lectura</span>}
+        </div>
+      </header>
+
+      <div class="max-w-3xl mx-auto prose-blog">
+        <slot />
+      </div>
+    </div>
+  </article>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .prose-blog :global(p) {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-on-surface-variant);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .prose-blog :global(h2) {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: var(--color-on-background);
+    margin: 3rem 0 1rem 0;
+  }
+
+  .prose-blog :global(h3) {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+    color: var(--color-on-background);
+    margin: 2.5rem 0 0.75rem 0;
+  }
+
+  .prose-blog :global(ul),
+  .prose-blog :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    color: var(--color-on-surface-variant);
+  }
+
+  .prose-blog :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-blog :global(strong) {
+    color: var(--color-on-background);
+    font-weight: 600;
+  }
+
+  .prose-blog :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-blog :global(blockquote) {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--color-primary);
+    font-style: italic;
+    color: var(--color-on-surface-variant);
+  }
+</style>
