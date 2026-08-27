@@ -5,11 +5,14 @@ import Layout from "./Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/ui/FormattedDate.astro";
+import { useTranslations, getLocalizedPath } from "../i18n/utils";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, category, categorySlug, readingTime } = Astro.props;
-const lang = "es";
+const { title, description, pubDate, updatedDate, heroImage, category, categorySlug, readingTime, lang } =
+  Astro.props;
+const t = useTranslations(lang);
+const blogHome = getLocalizedPath(lang, "/blog");
 ---
 
 <Layout lang={lang} title={`${title} | Nitza Develop`} description={description}>
@@ -18,10 +21,10 @@ const lang = "es";
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
       <div class="max-w-3xl mx-auto mb-10">
         <a
-          href="/blog"
+          href={blogHome}
           class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
         >
-          ← Volver al Blog
+          {t("blog.back")}
         </a>
       </div>
 
@@ -47,9 +50,9 @@ const lang = "es";
           {title}
         </h1>
         <div class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal flex items-center justify-center gap-2">
-          <FormattedDate date={pubDate} />
-          {updatedDate && <span>· Actualizado <FormattedDate date={updatedDate} /></span>}
-          {readingTime && <span>· {readingTime} min de lectura</span>}
+          <FormattedDate date={pubDate} lang={lang} />
+          {updatedDate && <span>· {t("blog.updated")} <FormattedDate date={updatedDate} lang={lang} /></span>}
+          {readingTime && <span>· {readingTime} {t("blog.minRead")}</span>}
         </div>
       </header>
 

@@ -2,12 +2,11 @@
 title: "Por qué nos llamamos Nitza Develop"
 description: "El origen de nuestro nombre: el legado de Nitza Villapol en Cocina al Minuto y la metáfora de las recetas que usa Richard Stallman para explicar el software libre."
 pubDate: 2026-08-27
+lang: "es"
 category: "Nota de Cata"
 categorySlug: "nota-de-cata"
 readingTime: 5
 ---
-
-# Por qué nos llamamos Nitza Develop
 
 ![Tarjeta de receta manuscrita](https://blog-media.ladetec.com/nitza-develop/cocina_al_minuto/cocina_al_minuto-1.webp)
 

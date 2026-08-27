@@ -2,12 +2,11 @@
 title: "Why We're Called Nitza Develop"
 description: "The story behind our name: Nitza Villapol's legacy on Cocina al Minuto and the recipe metaphor Richard Stallman uses to explain free software."
 pubDate: 2026-08-27
+lang: "en"
 category: "Nota de Cata"
 categorySlug: "nota-de-cata"
 readingTime: 5
 ---
-
-# Why We're Called Nitza Develop
 
 ![Handwritten recipe card](https://blog-media.ladetec.com/nitza-develop/cocina_al_minuto/cocina_al_minuto-1.webp)
 

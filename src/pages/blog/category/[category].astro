@@ -7,7 +7,7 @@ import BlogCard from "../../../components/BlogCard.astro";
 import { useTranslations } from "../../../i18n/utils";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("blog", (post) => post.data.lang !== "en");
   const uniqueSlugs = [...new Set(allPosts.map((post) => post.data.categorySlug))];
 
   return uniqueSlugs.map((categorySlug) => {
@@ -25,7 +25,7 @@ const { categoryName } = Astro.props;
 const lang = "es";
 const t = useTranslations(lang);
 
-const posts = (await getCollection("blog"))
+const posts = (await getCollection("blog", (post) => post.data.lang !== "en"))
   .filter((post) => post.data.categorySlug === category)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -61,6 +61,7 @@ const description = `Artículos de la categoría ${categoryName} en ${t("blog.ti
               pubDate={post.data.pubDate}
               readingTime={post.data.readingTime}
               heroImage={post.data.heroImage}
+              lang={lang}
             />
           ))
         }
