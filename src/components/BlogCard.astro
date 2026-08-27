@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import FormattedDate from "./ui/FormattedDate.astro";
+import { useTranslations, type Lang } from "../i18n/utils";
 
 interface Props {
   title: string;
@@ -12,9 +13,11 @@ interface Props {
   pubDate: Date;
   readingTime?: number;
   heroImage?: ImageMetadata;
+  lang?: Lang;
 }
 
-const { title, description, category, categoryUrl, url, pubDate, readingTime, heroImage } = Astro.props;
+const { title, description, category, categoryUrl, url, pubDate, readingTime, heroImage, lang = "es" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <article class="flex flex-col group">
@@ -39,14 +42,14 @@ const { title, description, category, categoryUrl, url, pubDate, readingTime, he
     <a href={url} class="hover:text-primary transition-colors duration-300">{title}</a>
   </h3>
   <div class="text-label-caps text-on-surface-variant/70 mb-4 flex items-center gap-2 normal-case tracking-normal font-normal">
-    <FormattedDate date={pubDate} />
-    {readingTime && <span>· {readingTime} min de lectura</span>}
+    <FormattedDate date={pubDate} lang={lang} />
+    {readingTime && <span>· {readingTime} {t("blog.minRead")}</span>}
   </div>
   <p class="text-body-md text-on-surface-variant mb-6 grow">{description}</p>
   <a
     class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
     href={url}
   >
-    Leer Crónica
+    {t("blog.readMore")}
   </a>
 </article>

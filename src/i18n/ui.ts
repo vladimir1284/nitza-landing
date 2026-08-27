@@ -114,6 +114,9 @@ export const ui = {
     "blog.subtitle": "Notas de cata y estudios técnicos sobre el arte de la ingeniería de software.",
     "blog.readMore": "Leer Crónica",
     "blog.viewAll": "Ver todas las crónicas",
+    "blog.back": "← Volver al Blog",
+    "blog.minRead": "min de lectura",
+    "blog.updated": "Actualizado",
 
     "footer.copyright": "© {year} Nitza Develop. Todos los derechos reservados.",
     "footer.manifesto": "El Manifiesto",
@@ -232,6 +235,9 @@ export const ui = {
     "blog.subtitle": "Tasting notes and technical studies on the art of software engineering.",
     "blog.readMore": "Read Chronicle",
     "blog.viewAll": "View all chronicles",
+    "blog.back": "← Back to Blog",
+    "blog.minRead": "min read",
+    "blog.updated": "Updated",
 
     "footer.copyright": "© {year} Nitza Develop. All rights reserved.",
     "footer.manifesto": "The Manifesto",

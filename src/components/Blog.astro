@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { useTranslations, type Lang } from "../i18n/utils";
+import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -9,10 +9,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const blogHome = getLocalizedPath(lang, "/blog");
 
-const posts = (await getCollection("blog"))
+const posts = (await getCollection("blog", (post) => post.data.lang === lang))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const postUrl = (id: string) => `${blogHome}/${id.replace(/-en$/, "")}`;
 ---
 
 <section class="py-section-gap border-t border-outline-variant/30" id="blog">
@@ -26,7 +29,7 @@ const posts = (await getCollection("blog"))
       {
         posts.map((post) => (
           <div class="flex flex-col group">
-            <a href={`/blog/${post.id}`} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
+            <a href={postUrl(post.id)} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
               {post.data.heroImage && (
                 <Image
                   alt={post.data.title}
@@ -43,7 +46,7 @@ const posts = (await getCollection("blog"))
             <p class="text-body-md text-on-surface-variant mb-6 grow">{post.data.description}</p>
             <a
               class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
-              href={`/blog/${post.id}`}
+              href={postUrl(post.id)}
             >
               {t("blog.readMore")}
             </a>
@@ -53,7 +56,7 @@ const posts = (await getCollection("blog"))
     </div>
     <div class="text-center mt-16">
       <a
-        href="/blog"
+        href={blogHome}
         class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded"
       >
         {t("blog.viewAll")}
