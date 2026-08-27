@@ -19,3 +19,13 @@ export function getLocalizedPath(lang: Lang, path: string): string {
   if (lang === defaultLang) return `/${cleanPath}`;
   return `/${lang}/${cleanPath}`;
 }
+
+export function getCategoryLabel(
+  lang: Lang,
+  categorySlug: string,
+  fallback: string,
+): string {
+  const key =
+    `blog.category.${categorySlug}` as keyof (typeof ui)[typeof defaultLang];
+  return ui[lang][key] ?? fallback;
+}

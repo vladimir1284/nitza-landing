@@ -4,7 +4,7 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import BlogCard from "../../../components/BlogCard.astro";
-import { useTranslations } from "../../../i18n/utils";
+import { useTranslations, getCategoryLabel } from "../../../i18n/utils";
 
 const lang = "en";
 const t = useTranslations(lang);
@@ -30,8 +30,8 @@ const posts = (await getCollection("blog", (post) => post.data.lang === "en")).s
             <BlogCard
               title={post.data.title}
               description={post.data.description}
-              category={post.data.category}
-              categoryUrl={`/blog/category/${post.data.categorySlug}`}
+              category={getCategoryLabel(lang, post.data.categorySlug, post.data.category)}
+              categoryUrl={`/en/blog/category/${post.data.categorySlug}`}
               url={`/en/blog/${post.id.replace(/-en$/, "")}`}
               pubDate={post.data.pubDate}
               readingTime={post.data.readingTime}

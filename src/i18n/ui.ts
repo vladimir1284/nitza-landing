@@ -23,23 +23,29 @@ export const ui = {
     "hero.subtitle":
       "Transformamos tus necesidades de negocio en recetas digitales de alta precisión. La sazón del buen código, servida a tiempo.",
     "hero.cta": "Pide una cata inicial",
-    "hero.image.alt": "Campana de plata digital revelando alta cocina de software",
+    "hero.image.alt":
+      "Campana de plata digital revelando alta cocina de software",
 
     "team.title": "La Brigada de Cocina",
-    "team.subtitle": "Cada línea de código es elaborada por especialistas en su estación.",
+    "team.subtitle":
+      "Cada línea de código es elaborada por especialistas en su estación.",
     "team.image.alt": "Precisión en el desarrollo",
     "team.member1.role": "Chef de Cuisine",
     "team.member1.tag": "Tech Lead",
-    "team.member1.desc": "Diseña la estructura global y define los ingredientes clave de cada arquitectura.",
+    "team.member1.desc":
+      "Diseña la estructura global y define los ingredientes clave de cada arquitectura.",
     "team.member2.role": "Sous Chef",
     "team.member2.tag": "Backend",
-    "team.member2.desc": "Encargados de la cocción lenta, motores de base de datos, seguridad y rendimiento.",
+    "team.member2.desc":
+      "Encargados de la cocción lenta, motores de base de datos, seguridad y rendimiento.",
     "team.member3.role": "Pastry Chef",
     "team.member3.tag": "Frontend / UX",
-    "team.member3.desc": "Cuida la estética, el emplatado, la interactividad y la experiencia visual.",
+    "team.member3.desc":
+      "Cuida la estética, el emplatado, la interactividad y la experiencia visual.",
     "team.member4.role": "Sommelier",
     "team.member4.tag": "Quality Assurance",
-    "team.member4.desc": "Garantiza el maridaje perfecto y la pureza del producto antes de servir.",
+    "team.member4.desc":
+      "Garantiza el maridaje perfecto y la pureza del producto antes de servir.",
 
     "menu.title": "El Menú de la Casa",
     "menu.item1.title": "Especialidad de la Casa",
@@ -74,7 +80,8 @@ export const ui = {
     "services.cat.data": "Datos",
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL",
     "services.cat.devops": "DevOps y Cloud",
-    "services.cat.devops.items": "Docker, Swarm, AWS, Jenkins, GitHub Actions, Azure DevOps, GitLab",
+    "services.cat.devops.items":
+      "Docker, Swarm, AWS, Jenkins, GitHub Actions, Azure DevOps, GitLab",
     "services.cat.architecture": "Arquitectura",
     "services.cat.architecture.items": "Microservicios, Ingeniería Inversa",
     "services.cat.quality": "Calidad y Seguridad",
@@ -85,22 +92,29 @@ export const ui = {
     "services.carta.desc":
       "Del concepto al plato servido. Proyectos completos para negocios que buscan una solución llave en mano, sin necesidad de cocina propia.",
     "services.carta.item1.title": "Apps Móviles a Medida",
-    "services.carta.item1.desc": "Aplicaciones nativas Android e iOS, de diseño a publicación en tienda.",
+    "services.carta.item1.desc":
+      "Aplicaciones nativas Android e iOS, de diseño a publicación en tienda.",
     "services.carta.item2.title": "IA Aplicada al Negocio",
     "services.carta.item2.desc":
       "Agentes con RAG, fine-tuning de modelos y soluciones de machine learning, respaldadas por un doctorado en el área.",
     "services.carta.item3.title": "Ecommerce y Pagos",
-    "services.carta.item3.desc": "Tiendas online y pasarelas de pago integradas de forma segura.",
+    "services.carta.item3.desc":
+      "Tiendas online y pasarelas de pago integradas de forma segura.",
     "services.carta.item4.title": "Migración de Sistemas Legados",
-    "services.carta.item4.desc": "Nuestra especialidad: modernizamos plataformas antiguas sin frenar el negocio.",
+    "services.carta.item4.desc":
+      "Nuestra especialidad: modernizamos plataformas antiguas sin frenar el negocio.",
     "services.carta.item5.title": "Automatización de Procesos",
-    "services.carta.item5.desc": "Flujos de trabajo automatizados que eliminan tareas manuales repetitivas.",
+    "services.carta.item5.desc":
+      "Flujos de trabajo automatizados que eliminan tareas manuales repetitivas.",
     "services.carta.item6.title": "Auditorías de Seguridad",
-    "services.carta.item6.desc": "Revisión avanzada a cargo de un especialista dedicado del equipo.",
+    "services.carta.item6.desc":
+      "Revisión avanzada a cargo de un especialista dedicado del equipo.",
     "services.carta.item7.title": "Integraciones a Medida",
-    "services.carta.item7.desc": "Conectamos su operación con APIs de terceros, sin importar cuán compleja sea.",
+    "services.carta.item7.desc":
+      "Conectamos su operación con APIs de terceros, sin importar cuán compleja sea.",
     "services.carta.item8.title": "Reportes y Datos",
-    "services.carta.item8.desc": "Dashboards y reportes sobre SQL Server, ClickHouse y PostgreSQL.",
+    "services.carta.item8.desc":
+      "Dashboards y reportes sobre SQL Server, ClickHouse y PostgreSQL.",
 
     "testimonials.title": "Comentarios de nuestros Comensales",
     "testimonials.quote1":
@@ -111,14 +125,17 @@ export const ui = {
     "testimonials.cite2": "Fundadora, ArtVibe",
 
     "blog.title": "Crónicas de la Cocina",
-    "blog.subtitle": "Notas de cata y estudios técnicos sobre el arte de la ingeniería de software.",
+    "blog.subtitle":
+      "Notas de cata y estudios técnicos sobre el arte de la ingeniería de software.",
     "blog.readMore": "Leer Crónica",
     "blog.viewAll": "Ver todas las crónicas",
     "blog.back": "← Volver al Blog",
     "blog.minRead": "min de lectura",
     "blog.updated": "Actualizado",
+    "blog.category.nota-de-cata": "Nota de Cata",
 
-    "footer.copyright": "© {year} Nitza Develop. Todos los derechos reservados.",
+    "footer.copyright":
+      "© {year} Nitza Develop. Todos los derechos reservados.",
     "footer.manifesto": "El Manifiesto",
     "footer.kitchen": "La Cocina",
     "footer.privateDining": "Atención Privada",
@@ -149,20 +166,25 @@ export const ui = {
     "hero.image.alt": "Digital silver cloche revealing haute software cuisine",
 
     "team.title": "The Kitchen Brigade",
-    "team.subtitle": "Every line of code is crafted by specialists at their station.",
+    "team.subtitle":
+      "Every line of code is crafted by specialists at their station.",
     "team.image.alt": "Precision in development",
     "team.member1.role": "Chef de Cuisine",
     "team.member1.tag": "Tech Lead",
-    "team.member1.desc": "Designs the overall structure and defines the key ingredients of each architecture.",
+    "team.member1.desc":
+      "Designs the overall structure and defines the key ingredients of each architecture.",
     "team.member2.role": "Sous Chef",
     "team.member2.tag": "Backend",
-    "team.member2.desc": "In charge of the slow cooking: database engines, security, and performance.",
+    "team.member2.desc":
+      "In charge of the slow cooking: database engines, security, and performance.",
     "team.member3.role": "Pastry Chef",
     "team.member3.tag": "Frontend / UX",
-    "team.member3.desc": "Cares for aesthetics, plating, interactivity, and the visual experience.",
+    "team.member3.desc":
+      "Cares for aesthetics, plating, interactivity, and the visual experience.",
     "team.member4.role": "Sommelier",
     "team.member4.tag": "Quality Assurance",
-    "team.member4.desc": "Ensures the perfect pairing and the product's purity before it's served.",
+    "team.member4.desc":
+      "Ensures the perfect pairing and the product's purity before it's served.",
 
     "menu.title": "The House Menu",
     "menu.item1.title": "House Specialty",
@@ -171,14 +193,16 @@ export const ui = {
       "Tailor-made applications designed from scratch with top-tier technical ingredients. Ideal for demanding corporate palates.",
     "menu.item2.title": "Minute-Made Kitchen",
     "menu.item2.tag": "MVP / Proto",
-    "menu.item2.desc": "Agile, fast development to validate ideas in the market. Served hot and ready to iterate.",
+    "menu.item2.desc":
+      "Agile, fast development to validate ideas in the market. Served hot and ready to iterate.",
     "menu.item3.title": "Slow Simmer",
     "menu.item3.tag": "Support",
     "menu.item3.desc":
       "Preventive maintenance, security audits, and refactoring. The ongoing care your platform deserves.",
 
     "services.title": "The House Ingredients",
-    "services.subtitle": "One team, several years cooking together. We serve it differently depending on who's at the table.",
+    "services.subtitle":
+      "One team, several years cooking together. We serve it differently depending on who's at the table.",
 
     "services.residente.tag": "Staff Augmentation",
     "services.residente.title": "Chef in Residence",
@@ -195,7 +219,8 @@ export const ui = {
     "services.cat.data": "Data",
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL",
     "services.cat.devops": "DevOps & Cloud",
-    "services.cat.devops.items": "Docker, Swarm, AWS, Jenkins, GitHub Actions, Azure DevOps, GitLab",
+    "services.cat.devops.items":
+      "Docker, Swarm, AWS, Jenkins, GitHub Actions, Azure DevOps, GitLab",
     "services.cat.architecture": "Architecture",
     "services.cat.architecture.items": "Microservices, Reverse Engineering",
     "services.cat.quality": "QA & Security",
@@ -206,22 +231,29 @@ export const ui = {
     "services.carta.desc":
       "From concept to plated dish. Complete projects for businesses that want a turnkey solution, no in-house kitchen required.",
     "services.carta.item1.title": "Custom Mobile Apps",
-    "services.carta.item1.desc": "Native Android and iOS apps, from design to store release.",
+    "services.carta.item1.desc":
+      "Native Android and iOS apps, from design to store release.",
     "services.carta.item2.title": "AI Applied to Business",
     "services.carta.item2.desc":
       "RAG-powered agents, model fine-tuning, and machine learning solutions backed by a PhD in the field.",
     "services.carta.item3.title": "Ecommerce & Payments",
-    "services.carta.item3.desc": "Online stores and payment gateways integrated securely.",
+    "services.carta.item3.desc":
+      "Online stores and payment gateways integrated securely.",
     "services.carta.item4.title": "Legacy System Migration",
-    "services.carta.item4.desc": "Our specialty: we modernize aging platforms without stopping the business.",
+    "services.carta.item4.desc":
+      "Our specialty: we modernize aging platforms without stopping the business.",
     "services.carta.item5.title": "Process Automation",
-    "services.carta.item5.desc": "Automated workflows that remove repetitive manual work.",
+    "services.carta.item5.desc":
+      "Automated workflows that remove repetitive manual work.",
     "services.carta.item6.title": "Security Audits",
-    "services.carta.item6.desc": "Advanced review led by a dedicated security specialist on the team.",
+    "services.carta.item6.desc":
+      "Advanced review led by a dedicated security specialist on the team.",
     "services.carta.item7.title": "Custom Integrations",
-    "services.carta.item7.desc": "We connect your operation to third-party APIs, however complex.",
+    "services.carta.item7.desc":
+      "We connect your operation to third-party APIs, however complex.",
     "services.carta.item8.title": "Reporting & Data",
-    "services.carta.item8.desc": "Dashboards and reports across SQL Server, ClickHouse, and PostgreSQL.",
+    "services.carta.item8.desc":
+      "Dashboards and reports across SQL Server, ClickHouse, and PostgreSQL.",
 
     "testimonials.title": "What Our Guests Say",
     "testimonials.quote1":
@@ -232,12 +264,14 @@ export const ui = {
     "testimonials.cite2": "Founder, ArtVibe",
 
     "blog.title": "Chronicles of the Kitchen",
-    "blog.subtitle": "Tasting notes and technical studies on the art of software engineering.",
+    "blog.subtitle":
+      "Tasting notes and technical studies on the art of software engineering.",
     "blog.readMore": "Read Chronicle",
     "blog.viewAll": "View all chronicles",
     "blog.back": "← Back to Blog",
     "blog.minRead": "min read",
     "blog.updated": "Updated",
+    "blog.category.nota-de-cata": "Tasting Note",
 
     "footer.copyright": "© {year} Nitza Develop. All rights reserved.",
     "footer.manifesto": "The Manifesto",

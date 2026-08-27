@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
+import { useTranslations, getLocalizedPath, getCategoryLabel, type Lang } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -41,7 +41,9 @@ const postUrl = (id: string) => `${blogHome}/${id.replace(/-en$/, "")}`;
                 />
               )}
             </a>
-            <span class="text-label-caps text-primary mb-2">{post.data.category}</span>
+            <span class="text-label-caps text-primary mb-2">
+              {getCategoryLabel(lang, post.data.categorySlug, post.data.category)}
+            </span>
             <h3 class="text-headline-sm text-on-background mb-4">{post.data.title}</h3>
             <p class="text-body-md text-on-surface-variant mb-6 grow">{post.data.description}</p>
             <a

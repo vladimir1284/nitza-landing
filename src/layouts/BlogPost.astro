@@ -5,7 +5,7 @@ import Layout from "./Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/ui/FormattedDate.astro";
-import { useTranslations, getLocalizedPath } from "../i18n/utils";
+import { useTranslations, getLocalizedPath, getCategoryLabel } from "../i18n/utils";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -13,6 +13,8 @@ const { title, description, pubDate, updatedDate, heroImage, category, categoryS
   Astro.props;
 const t = useTranslations(lang);
 const blogHome = getLocalizedPath(lang, "/blog");
+const categoryUrl = getLocalizedPath(lang, `/blog/category/${categorySlug}`);
+const categoryLabel = getCategoryLabel(lang, categorySlug, category);
 ---
 
 <Layout lang={lang} title={`${title} | Nitza Develop`} description={description}>
@@ -43,8 +45,8 @@ const blogHome = getLocalizedPath(lang, "/blog");
       }
 
       <header class="max-w-3xl mx-auto mb-12 text-center">
-        <a href={`/blog/category/${categorySlug}`} class="text-label-caps text-primary hover:underline underline-offset-4">
-          {category}
+        <a href={categoryUrl} class="text-label-caps text-primary hover:underline underline-offset-4">
+          {categoryLabel}
         </a>
         <h1 class="text-headline-md md:text-display-lg-mobile text-on-background font-serif italic mt-4 mb-6">
           {title}
