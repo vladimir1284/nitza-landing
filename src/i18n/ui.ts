@@ -119,7 +119,9 @@ export const ui = {
     "footer.manifesto": "El Manifiesto",
     "footer.kitchen": "La Cocina",
     "footer.privateDining": "Atención Privada",
-    "footer.legal": "Legal",
+    "footer.email": "Escríbenos por correo",
+
+    "cta.whatsappMessage": "Hola, quiero pedir una cata inicial.",
 
     "theme.toggle": "Cambiar tema",
     "lang.switch": "Switch to English",
@@ -235,7 +237,9 @@ export const ui = {
     "footer.manifesto": "The Manifesto",
     "footer.kitchen": "The Kitchen",
     "footer.privateDining": "Private Dining",
-    "footer.legal": "Legal",
+    "footer.email": "Email us",
+
+    "cta.whatsappMessage": "Hi, I'd like to book an initial tasting.",
 
     "theme.toggle": "Toggle theme",
     "lang.switch": "Cambiar a Español",

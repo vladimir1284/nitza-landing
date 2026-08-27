@@ -1,0 +1,26 @@
+---
+import { WHATSAPP_NUMBER } from "../../lib/contact";
+
+interface Props {
+  message: string;
+  class?: string;
+}
+
+const { message, class: className } = Astro.props;
+const encodedNumber = Buffer.from(WHATSAPP_NUMBER).toString("base64");
+---
+
+<a href="#" data-wa-msg={message} data-wa-number={encodedNumber} class={className}>
+  <slot />
+</a>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>("[data-wa-msg]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const number = atob(el.dataset.waNumber || "");
+      const msg = encodeURIComponent(el.dataset.waMsg || "");
+      window.open(`https://wa.me/${number}?text=${msg}`, "_blank", "noopener");
+    });
+  });
+</script>

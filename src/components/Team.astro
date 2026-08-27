@@ -15,25 +15,21 @@ const members = [
     role: t("team.member1.role"),
     tag: t("team.member1.tag"),
     desc: t("team.member1.desc"),
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Bdbne5i7quySISmywEema5cQfPPfopfII2pOAuUpJH3No439df39oYOedgZXTPeo-IR3TIHOAgrM93JRqe47mjMR4OsS8YXEqvVCfdbT_AedG1bl5nvJ89UuKcTk00ZfKzL8L9bHKUlbOXv6Rzg9XQeAhQrzdf9q_bHjImKzMloT8whCCbUcx9xHZ0dOizrx_Fh8NYZu-WC1MABZpZKE3bwuMY5mocEM0czzLbfXqC3SxHpJS91XZA",
   },
   {
     role: t("team.member2.role"),
     tag: t("team.member2.tag"),
     desc: t("team.member2.desc"),
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfg2BoQAunuVBkivIYSHA62S-AqWFe2V31tuHEcpQzrHe9J4xoeiO_PFeePx1MHbmPTdF4HcL-bAJZA7hYB6OOinSYzMBh9Ol51sS8nId3NHKl7r8ZHjd-Q26pFT4zSa8rxPbBfCB54xZdtang_3L4Z33h6Eyw6MblrMbZB9JRuyKGvso-1wrRMu3pr1lnivmvTy7Op-Pxu1BpwoGancL9YiulAi89qK2kQLYF1xSMNZSet_efNi1Wog",
   },
   {
     role: t("team.member3.role"),
     tag: t("team.member3.tag"),
     desc: t("team.member3.desc"),
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCSBhgE4ti4Q2T1WmSx01HmDLD-in9-VGpOz7YDGx8WgodR0Mt2nsQfUQnmYJEjvEuAh6wM4Kjg_rlOFpBViD1zgTVaLyQAP7Sj2zfMjuzp0IgJxBUE59yG0y0nKFQVDfgoHHX1X5DUQoHfoLMrP50BKlYAOpj-_b4vYAVNqkTMFVzXiXnAQsyQIinq56kCRMTyMT6gM-8OM1hznpXDYED3TQaEHv-FRQ3rUw5EnJhALztKlwi72GimIg",
   },
   {
     role: t("team.member4.role"),
     tag: t("team.member4.tag"),
     desc: t("team.member4.desc"),
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCTU6lD5pJPQDCB1_PqOilGReIxKXo-lGdGG38I-gIbfnlIwCvNLk0sMN8h328GgUwRT5XcS99lp0lPkhpPmRbrGRTv7EF6U5cA2MzlrUkv3EWw1z7V-b69onX1um_M9I7vByz-SvTpIxbzbbBRltfOfy0O988VYiwjRg7prSKkmtf6tHyoGGvAGCSRmwVOQZ7AxsKkC5t1Vl0k8eJdd6VlLh4q6YkjOnIpoTFHKZQgKK5kL69prGgYWw",
   },
 ];
 ---
@@ -59,8 +55,10 @@ const members = [
     {
       members.map((member) => (
         <div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
-          <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-lg">
-            <img alt={member.role} class="w-full h-full object-cover" src={member.img} loading="lazy" width="128" height="128" />
+          <div
+            class="w-32 h-32 mx-auto mb-6 rounded-lg bg-primary-container/30 border border-outline-variant flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-primary text-5xl" aria-hidden="true">person</span>
           </div>
           <h3 class="text-headline-sm text-on-background mb-2">{member.role}</h3>
           <span class="text-label-caps text-primary mb-4 block">{member.tag}</span>

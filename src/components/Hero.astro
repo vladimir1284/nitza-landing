@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
+import { useTranslations, type Lang } from "../i18n/utils";
 import cloche from "../assets/images/cloche.png";
+import WhatsAppLink from "./ui/WhatsAppLink.astro";
 
 interface Props {
   lang: Lang;
@@ -9,7 +10,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const reservation = `${getLocalizedPath(lang, "/")}#reservation`;
 ---
 
 <section class="py-section-gap flex flex-col items-center text-center" id="hero">
@@ -21,12 +21,12 @@ const reservation = `${getLocalizedPath(lang, "/")}#reservation`;
     </h1>
     <p class="text-body-lg text-on-surface-variant mt-10">{t("hero.subtitle")}</p>
     <div class="mt-12">
-      <a
+      <WhatsAppLink
+        message={t("cta.whatsappMessage")}
         class="inline-flex items-center justify-center px-8 py-4 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background transition-all duration-300 rounded"
-        href={reservation}
       >
         {t("hero.cta")}
-      </a>
+      </WhatsAppLink>
     </div>
   </div>
 

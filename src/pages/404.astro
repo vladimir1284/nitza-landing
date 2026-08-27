@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = "es";
+const t = useTranslations(lang);
+---
+
+<Layout lang={lang} title={`404 | ${t("nav.brand")}`} description={t("meta.description")}>
+  <Header lang={lang} />
+  <main
+    class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col items-center text-center min-h-[50vh] justify-center"
+  >
+    <h1 class="text-display-lg-mobile md:text-display-lg text-on-background mb-6">404</h1>
+    <p class="text-body-lg text-on-surface-variant mb-10">
+      Esta estación de la cocina no existe. Vuelve al menú principal.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background transition-all duration-300 rounded"
+    >
+      {t("nav.home")}
+    </a>
+  </main>
+  <Footer lang={lang} />
+</Layout>

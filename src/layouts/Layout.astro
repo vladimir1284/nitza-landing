@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+import { getImage } from "astro:assets";
 import { getLocalizedPath, type Lang } from "../i18n/utils";
+import ogSource from "../assets/images/cloche.png";
 
 interface Props {
   lang: Lang;
@@ -13,6 +15,9 @@ const { lang, title, description } = Astro.props;
 const canonicalPath = Astro.url.pathname;
 const alternateEs = getLocalizedPath("es", canonicalPath.replace(/^\/en\//, "/"));
 const alternateEn = getLocalizedPath("en", canonicalPath.replace(/^\/en\//, "/"));
+
+const ogImage = await getImage({ src: ogSource, width: 1200, height: 630, format: "webp" });
+const ogImageUrl = new URL(ogImage.src, Astro.site);
 ---
 
 <!doctype html>
@@ -29,6 +34,17 @@ const alternateEn = getLocalizedPath("en", canonicalPath.replace(/^\/en\//, "/")
     <link rel="alternate" hreflang="es" href={new URL(alternateEs, Astro.site)} />
     <link rel="alternate" hreflang="en" href={new URL(alternateEn, Astro.site)} />
     <link rel="alternate" hreflang="x-default" href={new URL(alternateEs, Astro.site)} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nitza Develop" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(canonicalPath, Astro.site)} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />

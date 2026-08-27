@@ -1,0 +1,23 @@
+---
+interface Props {
+  scheme: "mailto" | "tel";
+  value: string;
+  class?: string;
+}
+
+const { scheme, value, class: className } = Astro.props;
+const encoded = Buffer.from(`${scheme}:${value}`).toString("base64");
+---
+
+<a href="#" data-obf-href={encoded} class={className}>
+  <slot />
+</a>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>("[data-obf-href]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = atob(el.dataset.obfHref || "");
+    });
+  });
+</script>

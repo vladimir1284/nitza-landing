@@ -1,5 +1,8 @@
 ---
-import { useTranslations, type Lang } from "../i18n/utils";
+import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
+import WhatsAppLink from "./ui/WhatsAppLink.astro";
+import ObfuscatedLink from "./ui/ObfuscatedLink.astro";
+import { EMAIL } from "../lib/contact";
 
 interface Props {
   lang: Lang;
@@ -8,6 +11,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+const home = getLocalizedPath(lang, "/");
 ---
 
 <footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
@@ -22,30 +26,31 @@ const year = new Date().getFullYear();
       <div class="flex flex-col gap-4">
         <a
           class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
-          href="#"
+          href={`${home}#team`}
         >
           {t("footer.manifesto")}
         </a>
         <a
           class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
-          href="#"
+          href={`${home}#menu`}
         >
           {t("footer.kitchen")}
         </a>
       </div>
       <div class="flex flex-col gap-4">
-        <a
+        <WhatsAppLink
+          message={t("cta.whatsappMessage")}
           class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
-          href="#"
         >
           {t("footer.privateDining")}
-        </a>
-        <a
+        </WhatsAppLink>
+        <ObfuscatedLink
+          scheme="mailto"
+          value={EMAIL}
           class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
-          href="#"
         >
-          {t("footer.legal")}
-        </a>
+          {t("footer.email")}
+        </ObfuscatedLink>
       </div>
     </div>
   </div>

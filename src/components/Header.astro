@@ -2,6 +2,7 @@
 import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageToggle from "./LanguageToggle.astro";
+import WhatsAppLink from "./ui/WhatsAppLink.astro";
 
 interface Props {
   lang: Lang;
@@ -57,12 +58,12 @@ const home = getLocalizedPath(lang, "/");
     <div class="flex items-center gap-2">
       <LanguageToggle lang={lang} />
       <ThemeToggle lang={lang} />
-      <a
+      <WhatsAppLink
+        message={t("cta.whatsappMessage")}
         class="inline-flex items-center justify-center px-6 py-3 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background hover:border-primary-container transition-all duration-300 rounded"
-        href={`${home}#reservation`}
       >
         {t("nav.reserve")}
-      </a>
+      </WhatsAppLink>
     </div>
   </div>
 </nav>
