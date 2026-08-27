@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { useTranslations, getLocalizedPath, getCategoryLabel, type Lang } from "../i18n/utils";
+import { extractHeroImage } from "../utils/blog";
 
 interface Props {
   lang: Lang;
@@ -27,17 +27,17 @@ const postUrl = (id: string) => `${blogHome}/${id.replace(/-en$/, "")}`;
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
       {
-        posts.map((post) => (
+        posts.map((post) => {
+          const heroImage = post.data.heroImage ?? extractHeroImage(post.body);
+          return (
           <div class="flex flex-col group">
             <a href={postUrl(post.id)} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
-              {post.data.heroImage && (
-                <Image
+              {heroImage && (
+                <img
                   alt={post.data.title}
                   class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
-                  src={post.data.heroImage}
+                  src={heroImage}
                   loading="lazy"
-                  widths={[400, 640, 960]}
-                  sizes="(min-width: 768px) 33vw, 100vw"
                 />
               )}
             </a>
@@ -53,7 +53,8 @@ const postUrl = (id: string) => `${blogHome}/${id.replace(/-en$/, "")}`;
               {t("blog.readMore")}
             </a>
           </div>
-        ))
+          );
+        })
       }
     </div>
     <div class="text-center mt-16">

@@ -5,6 +5,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import { useTranslations } from "../../i18n/utils";
+import { extractHeroImage } from "../../utils/blog";
 
 const lang = "es";
 const t = useTranslations(lang);
@@ -35,7 +36,7 @@ const posts = (await getCollection("blog", (post) => post.data.lang !== "en")).s
               url={`/blog/${post.id}`}
               pubDate={post.data.pubDate}
               readingTime={post.data.readingTime}
-              heroImage={post.data.heroImage}
+              heroImage={post.data.heroImage ?? extractHeroImage(post.body)}
               lang={lang}
             />
           ))

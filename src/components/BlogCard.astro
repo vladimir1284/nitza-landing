@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 import FormattedDate from "./ui/FormattedDate.astro";
 import { useTranslations, type Lang } from "../i18n/utils";
 
@@ -12,7 +10,7 @@ interface Props {
   url: string;
   pubDate: Date;
   readingTime?: number;
-  heroImage?: ImageMetadata;
+  heroImage?: string;
   lang?: Lang;
 }
 
@@ -24,13 +22,11 @@ const t = useTranslations(lang);
   <a href={url} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
     {
       heroImage && (
-        <Image
+        <img
           alt={title}
           class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
           src={heroImage}
           loading="lazy"
-          widths={[400, 640, 960]}
-          sizes="(min-width: 768px) 33vw, 100vw"
         />
       )
     }

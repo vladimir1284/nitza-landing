@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import { extractHeroImage } from "../../utils/blog";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", (post) => post.data.lang !== "en");
@@ -12,8 +13,9 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await render(post);
+const heroImage = post.data.heroImage ?? extractHeroImage(post.body);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} heroImage={heroImage}>
   <Content />
 </BlogPost>

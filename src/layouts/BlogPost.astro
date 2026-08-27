@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 import Header from "../components/Header.astro";
@@ -33,13 +32,7 @@ const categoryLabel = getCategoryLabel(lang, categorySlug, category);
       {
         heroImage && (
           <div class="max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-outline-variant/30 aspect-video">
-            <Image
-              alt={title}
-              class="w-full h-full object-cover"
-              src={heroImage}
-              widths={[640, 960, 1400]}
-              sizes="(min-width: 1024px) 900px, 100vw"
-            />
+            <img alt={title} class="w-full h-full object-cover" src={heroImage} />
           </div>
         )
       }

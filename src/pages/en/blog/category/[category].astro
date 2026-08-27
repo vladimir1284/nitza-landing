@@ -5,6 +5,7 @@ import Header from "../../../../components/Header.astro";
 import Footer from "../../../../components/Footer.astro";
 import BlogCard from "../../../../components/BlogCard.astro";
 import { useTranslations, getCategoryLabel } from "../../../../i18n/utils";
+import { extractHeroImage } from "../../../../utils/blog";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog", (post) => post.data.lang === "en");
@@ -56,7 +57,7 @@ const description = `${t("blog.title")} articles in the ${categoryName} category
               url={`/en/blog/${post.id.replace(/-en$/, "")}`}
               pubDate={post.data.pubDate}
               readingTime={post.data.readingTime}
-              heroImage={post.data.heroImage}
+              heroImage={post.data.heroImage ?? extractHeroImage(post.body)}
               lang={lang}
             />
           ))
