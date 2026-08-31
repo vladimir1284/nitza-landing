@@ -41,9 +41,10 @@ const categoryLabel = getCategoryLabel(lang, categorySlug, category);
         <a href={categoryUrl} class="text-label-caps text-primary hover:underline underline-offset-4">
           {categoryLabel}
         </a>
-        <h1 class="text-headline-md md:text-display-lg-mobile text-on-background font-serif italic mt-4 mb-6">
-          {title}
-        </h1>
+        <h1
+          class="text-headline-md md:text-display-lg-mobile text-on-background font-serif italic mt-4 mb-6"
+          set:html={title.replace("Nitza Develop", '<span class="font-script not-italic text-[1.1em] font-normal">Nitza Develop</span>')}
+        />
         <div class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal flex items-center justify-center gap-2">
           <FormattedDate date={pubDate} lang={lang} />
           {updatedDate && <span>· {t("blog.updated")} <FormattedDate date={updatedDate} lang={lang} /></span>}

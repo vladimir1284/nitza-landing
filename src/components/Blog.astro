@@ -44,7 +44,10 @@ const postUrl = (id: string) => `${blogHome}/${id.replace(/-en$/, "")}`;
             <span class="text-label-caps text-primary mb-2">
               {getCategoryLabel(lang, post.data.categorySlug, post.data.category)}
             </span>
-            <h3 class="text-headline-sm text-on-background mb-4">{post.data.title}</h3>
+            <h3
+              class="text-headline-sm text-on-background mb-4"
+              set:html={post.data.title.replace("Nitza Develop", '<span class="font-script text-[1.1em] font-normal">Nitza Develop</span>')}
+            />
             <p class="text-body-md text-on-surface-variant mb-6 grow">{post.data.description}</p>
             <a
               class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"

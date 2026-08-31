@@ -27,7 +27,10 @@ const testimonials = [
             <span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg mb-4" aria-hidden="true">
               format_quote
             </span>
-            <blockquote class="text-headline-sm font-serif italic text-on-background mb-6">{item.quote}</blockquote>
+            <blockquote
+              class="text-headline-sm font-serif italic text-on-background mb-6"
+              set:html={item.quote.replace("Nitza Develop", '<span class="font-script not-italic text-[1.15em] font-normal">Nitza Develop</span>')}
+            />
             <div class="flex items-center gap-4">
               <div class="h-px w-8 bg-outline-variant" />
               <cite class="text-label-caps text-primary not-italic tracking-widest">{item.cite}</cite>

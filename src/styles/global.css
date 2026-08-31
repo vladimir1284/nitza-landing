@@ -193,6 +193,7 @@
   /* Font families from maqueta.html */
   --font-display: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
+  --font-script: "Style Script", cursive;
 }
 
 @layer base {
@@ -202,6 +203,13 @@
 }
 
 @layer components {
+  .font-script,
+  .font-style-script {
+    font-family: var(--font-script);
+    font-style: normal;
+    text-transform: none !important;
+  }
+
   /* Required by Google's Material Symbols variable font to render as icons */
   .material-symbols-outlined {
     font-family: "Material Symbols Outlined";

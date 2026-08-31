@@ -35,7 +35,11 @@ const t = useTranslations(lang);
     {category}
   </a>
   <h3 class="text-headline-sm text-on-background mb-2">
-    <a href={url} class="hover:text-primary transition-colors duration-300">{title}</a>
+    <a
+      href={url}
+      class="hover:text-primary transition-colors duration-300"
+      set:html={title.replace("Nitza Develop", '<span class="font-script text-[1.1em] font-normal">Nitza Develop</span>')}
+    />
   </h3>
   <div class="text-label-caps text-on-surface-variant/70 mb-4 flex items-center gap-2 normal-case tracking-normal font-normal">
     <FormattedDate date={pubDate} lang={lang} />
