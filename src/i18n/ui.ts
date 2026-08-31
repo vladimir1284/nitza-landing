@@ -30,18 +30,22 @@ export const ui = {
     "team.subtitle":
       "Cada línea de código es elaborada por especialistas en su estación.",
     "team.image.alt": "Precisión en el desarrollo",
+    "team.member1.name": "Vladimir",
     "team.member1.role": "Chef de Cuisine",
     "team.member1.tag": "Tech Lead",
     "team.member1.desc":
       "Diseña la estructura global y define los ingredientes clave de cada arquitectura.",
+    "team.member2.name": "Alberto",
     "team.member2.role": "Sous Chef",
     "team.member2.tag": "Backend",
     "team.member2.desc":
       "Encargados de la cocción lenta, motores de base de datos, seguridad y rendimiento.",
+    "team.member3.name": "Michel",
     "team.member3.role": "Pastry Chef",
     "team.member3.tag": "Frontend / UX",
     "team.member3.desc":
       "Cuida la estética, el emplatado, la interactividad y la experiencia visual.",
+    "team.member4.name": "Armin",
     "team.member4.role": "Sommelier",
     "team.member4.tag": "Quality Assurance",
     "team.member4.desc":
@@ -169,18 +173,22 @@ export const ui = {
     "team.subtitle":
       "Every line of code is crafted by specialists at their station.",
     "team.image.alt": "Precision in development",
+    "team.member1.name": "Vladimir",
     "team.member1.role": "Chef de Cuisine",
     "team.member1.tag": "Tech Lead",
     "team.member1.desc":
       "Designs the overall structure and defines the key ingredients of each architecture.",
+    "team.member2.name": "Alberto",
     "team.member2.role": "Sous Chef",
     "team.member2.tag": "Backend",
     "team.member2.desc":
       "In charge of the slow cooking: database engines, security, and performance.",
+    "team.member3.name": "Michel",
     "team.member3.role": "Pastry Chef",
     "team.member3.tag": "Frontend / UX",
     "team.member3.desc":
       "Cares for aesthetics, plating, interactivity, and the visual experience.",
+    "team.member4.name": "Armin",
     "team.member4.role": "Sommelier",
     "team.member4.tag": "Quality Assurance",
     "team.member4.desc":

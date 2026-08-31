@@ -1,7 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "../i18n/utils";
-import teamBanner from "../assets/images/microchip-tweezers.png";
+
+import vladimirAvatar from "../assets/images/team/vladimir.webp";
+import albertoAvatar from "../assets/images/team/alberto.webp";
+import michelAvatar from "../assets/images/team/michel.webp";
+import arminAvatar from "../assets/images/team/armin.webp";
 
 interface Props {
   lang: Lang;
@@ -12,21 +16,29 @@ const t = useTranslations(lang);
 
 const members = [
   {
+    name: t("team.member1.name"),
+    avatar: vladimirAvatar,
     role: t("team.member1.role"),
     tag: t("team.member1.tag"),
     desc: t("team.member1.desc"),
   },
   {
+    name: t("team.member2.name"),
+    avatar: albertoAvatar,
     role: t("team.member2.role"),
     tag: t("team.member2.tag"),
     desc: t("team.member2.desc"),
   },
   {
+    name: t("team.member3.name"),
+    avatar: michelAvatar,
     role: t("team.member3.role"),
     tag: t("team.member3.tag"),
     desc: t("team.member3.desc"),
   },
   {
+    name: t("team.member4.name"),
+    avatar: arminAvatar,
     role: t("team.member4.role"),
     tag: t("team.member4.tag"),
     desc: t("team.member4.desc"),
@@ -40,27 +52,24 @@ const members = [
     <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("team.subtitle")}</p>
   </div>
 
-  <div class="mb-16 rounded-lg overflow-hidden border border-outline-variant/30 aspect-[21/9]">
-    <Image
-      alt={t("team.image.alt")}
-      class="w-full h-full object-cover opacity-90"
-      src={teamBanner}
-      loading="lazy"
-      widths={[640, 1280, 1920]}
-      sizes="100vw"
-    />
-  </div>
-
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
     {
       members.map((member) => (
-        <div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group">
+        <div class="bg-surface-container-low p-8 border border-outline-variant rounded-lg hover:border-primary-container transition-colors duration-300 group text-center flex flex-col items-center">
           <div
-            class="w-32 h-32 mx-auto mb-6 rounded-lg bg-primary-container/30 border border-outline-variant flex items-center justify-center"
+            class="w-32 h-32 mb-6 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-colors duration-300 shadow-md bg-surface-container-high"
           >
-            <span class="material-symbols-outlined text-primary text-5xl" aria-hidden="true">person</span>
+            <Image
+              src={member.avatar}
+              alt={`${member.name} - ${member.role}`}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              width={256}
+              height={256}
+              loading="lazy"
+            />
           </div>
-          <h3 class="text-headline-sm text-on-background mb-2">{member.role}</h3>
+          <h3 class="text-headline-sm text-on-background font-semibold mb-1">{member.name}</h3>
+          <p class="text-body-md text-on-surface font-medium mb-1">{member.role}</p>
           <span class="text-label-caps text-primary mb-4 block">{member.tag}</span>
           <p class="text-body-md text-on-surface-variant">{member.desc}</p>
         </div>
@@ -68,3 +77,4 @@ const members = [
     }
   </div>
 </section>
+
