@@ -32,27 +32,27 @@ const home = getLocalizedPath(lang, "/");
       </a>
       <a
         class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-        href={`${home}#team`}
-      >
-        {t("nav.team")}
-      </a>
-      <a
-        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
         href={`${home}#menu`}
       >
         {t("nav.menu")}
       </a>
       <a
         class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-        href={`${home}#tech`}
+        href={`${home}#blog`}
       >
-        {t("nav.tech")}
+        {t("nav.blog")}
       </a>
       <a
         class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
-        href={getLocalizedPath(lang, "/blog")}
+        href={`${home}#team`}
       >
-        {t("nav.blog")}
+        {t("nav.team")}
+      </a>
+      <a
+        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        href={`${home}#tech`}
+      >
+        {t("nav.tech")}
       </a>
     </div>
     <div class="flex items-center gap-2">
