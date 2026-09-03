@@ -45,10 +45,15 @@ export const ui = {
     "team.member3.tag": "Frontend / UX",
     "team.member3.desc":
       "Cuida la estética, el emplatado, la interactividad y la experiencia visual.",
-    "team.member4.name": "Armin",
-    "team.member4.role": "Sommelier",
-    "team.member4.tag": "Quality Assurance",
+    "team.member4.name": "Alejandro",
+    "team.member4.role": "Chef de Partie",
+    "team.member4.tag": "Bases de Datos / Data Science / LLM",
     "team.member4.desc":
+      "Sazona los datos con precisión: bases de datos, ciencia de datos y modelos de lenguaje en su punto justo.",
+    "team.member5.name": "Armin",
+    "team.member5.role": "Sommelier",
+    "team.member5.tag": "Quality Assurance",
+    "team.member5.desc":
       "Garantiza el maridaje perfecto y la pureza del producto antes de servir.",
 
     "menu.title": "El Menú de la Casa",
@@ -188,10 +193,15 @@ export const ui = {
     "team.member3.tag": "Frontend / UX",
     "team.member3.desc":
       "Cares for aesthetics, plating, interactivity, and the visual experience.",
-    "team.member4.name": "Armin",
-    "team.member4.role": "Sommelier",
-    "team.member4.tag": "Quality Assurance",
+    "team.member4.name": "Alejandro",
+    "team.member4.role": "Chef de Partie",
+    "team.member4.tag": "Databases / Data Science / LLM",
     "team.member4.desc":
+      "Seasons the data with precision: databases, data science, and language models cooked to perfection.",
+    "team.member5.name": "Armin",
+    "team.member5.role": "Sommelier",
+    "team.member5.tag": "Quality Assurance",
+    "team.member5.desc":
       "Ensures the perfect pairing and the product's purity before it's served.",
 
     "menu.title": "The House Menu",
