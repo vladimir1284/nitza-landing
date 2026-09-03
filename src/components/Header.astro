@@ -27,30 +27,38 @@ const home = getLocalizedPath(lang, "/");
       </a>
     </div>
     <div class="hidden md:flex gap-8 items-center">
-      <a class="text-label-caps text-primary border-b-2 border-primary pb-1" href={`${home}#hero`}>
+      <a
+        class="nav-link text-label-caps text-on-surface-variant border-b-2 border-transparent pb-1 hover:text-primary transition-colors duration-300"
+        href={`${home}#hero`}
+        data-section="hero"
+      >
         {t("nav.home")}
       </a>
       <a
-        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        class="nav-link text-label-caps text-on-surface-variant border-b-2 border-transparent pb-1 hover:text-primary transition-colors duration-300"
         href={`${home}#menu`}
+        data-section="menu"
       >
         {t("nav.menu")}
       </a>
       <a
-        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        class="nav-link text-label-caps text-on-surface-variant border-b-2 border-transparent pb-1 hover:text-primary transition-colors duration-300"
         href={`${home}#blog`}
+        data-section="blog"
       >
         {t("nav.blog")}
       </a>
       <a
-        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        class="nav-link text-label-caps text-on-surface-variant border-b-2 border-transparent pb-1 hover:text-primary transition-colors duration-300"
         href={`${home}#team`}
+        data-section="team"
       >
         {t("nav.team")}
       </a>
       <a
-        class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        class="nav-link text-label-caps text-on-surface-variant border-b-2 border-transparent pb-1 hover:text-primary transition-colors duration-300"
         href={`${home}#tech`}
+        data-section="tech"
       >
         {t("nav.tech")}
       </a>
@@ -67,3 +75,46 @@ const home = getLocalizedPath(lang, "/");
     </div>
   </div>
 </nav>
+
+<script>
+  function initScrollSpy() {
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link[data-section]");
+    if (!navLinks.length) return;
+
+    const sections = Array.from(navLinks)
+      .map((link) => document.getElementById(link.dataset.section ?? ""))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const setActive = (id: string) => {
+      navLinks.forEach((link) => {
+        const isActive = link.dataset.section === id;
+        link.classList.toggle("text-primary", isActive);
+        link.classList.toggle("border-primary", isActive);
+        link.classList.toggle("text-on-surface-variant", !isActive);
+        link.classList.toggle("border-transparent", !isActive);
+      });
+    };
+
+    const nav = document.querySelector("nav");
+    const navHeight = nav instanceof HTMLElement ? nav.offsetHeight : 0;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: `-${navHeight}px 0px -60% 0px`,
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  document.addEventListener("DOMContentLoaded", initScrollSpy);
+</script>
