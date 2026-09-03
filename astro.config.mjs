@@ -25,5 +25,8 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['condo-elegant-shipped-degree.trycloudflare.com'],
+    },
   },
 });
