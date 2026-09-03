@@ -33,13 +33,13 @@ const home = getLocalizedPath(lang, "/");
     <div class="flex flex-col md:flex-row gap-8 md:gap-16">
       <div class="flex flex-col gap-4">
         <a
-          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
           href={`${home}#team`}
         >
           {t("footer.manifesto")}
         </a>
         <a
-          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
           href={`${home}#menu`}
         >
           {t("footer.kitchen")}
@@ -48,14 +48,14 @@ const home = getLocalizedPath(lang, "/");
       <div class="flex flex-col gap-4">
         <WhatsAppLink
           message={t("cta.whatsappMessage")}
-          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
         >
           {t("footer.privateDining")}
         </WhatsAppLink>
         <ObfuscatedLink
           scheme="mailto"
           value={EMAIL}
-          class="text-body-md text-on-secondary-fixed-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
         >
           {t("footer.email")}
         </ObfuscatedLink>
