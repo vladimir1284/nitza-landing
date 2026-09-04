@@ -64,14 +64,70 @@ const home = getLocalizedPath(lang, "/");
       </a>
     </div>
     <div class="flex items-center gap-2">
-      <LanguageToggle lang={lang} />
-      <ThemeToggle lang={lang} />
+      <div class="hidden md:flex items-center gap-2">
+        <LanguageToggle lang={lang} />
+        <ThemeToggle lang={lang} />
+      </div>
       <WhatsAppLink
         message={t("cta.whatsappMessage")}
         class="inline-flex items-center justify-center px-6 py-3 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background hover:border-primary-container transition-all duration-300 rounded"
       >
         {t("nav.reserve")}
       </WhatsAppLink>
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-300"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t("nav.menu")}
+      >
+        <span class="material-symbols-outlined" aria-hidden="true" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant px-margin-mobile py-6">
+    <div class="flex flex-col">
+      <a
+        class="nav-link text-label-caps text-on-surface-variant py-3 border-b border-outline-variant/30 hover:text-primary transition-colors duration-300"
+        href={`${home}#hero`}
+        data-section="hero"
+      >
+        {t("nav.home")}
+      </a>
+      <a
+        class="nav-link text-label-caps text-on-surface-variant py-3 border-b border-outline-variant/30 hover:text-primary transition-colors duration-300"
+        href={`${home}#menu`}
+        data-section="menu"
+      >
+        {t("nav.menu")}
+      </a>
+      <a
+        class="nav-link text-label-caps text-on-surface-variant py-3 border-b border-outline-variant/30 hover:text-primary transition-colors duration-300"
+        href={`${home}#blog`}
+        data-section="blog"
+      >
+        {t("nav.blog")}
+      </a>
+      <a
+        class="nav-link text-label-caps text-on-surface-variant py-3 border-b border-outline-variant/30 hover:text-primary transition-colors duration-300"
+        href={`${home}#team`}
+        data-section="team"
+      >
+        {t("nav.team")}
+      </a>
+      <a
+        class="nav-link text-label-caps text-on-surface-variant py-3 border-b border-outline-variant/30 hover:text-primary transition-colors duration-300"
+        href={`${home}#tech`}
+        data-section="tech"
+      >
+        {t("nav.tech")}
+      </a>
+    </div>
+    <div class="flex items-center gap-2 mt-4 pt-4">
+      <LanguageToggle lang={lang} />
+      <ThemeToggle lang={lang} />
     </div>
   </div>
 </nav>
@@ -116,5 +172,27 @@ const home = getLocalizedPath(lang, "/");
     sections.forEach((section) => observer.observe(section));
   }
 
+  function initMobileMenu() {
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const icon = document.getElementById("mobile-menu-icon");
+    const menu = document.getElementById("mobile-menu");
+    if (!toggle || !menu) return;
+
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle("hidden", !open);
+      toggle.setAttribute("aria-expanded", String(open));
+      if (icon) icon.textContent = open ? "close" : "menu";
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(menu.classList.contains("hidden"));
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", initScrollSpy);
+  document.addEventListener("DOMContentLoaded", initMobileMenu);
 </script>
