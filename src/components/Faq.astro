@@ -1,0 +1,84 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items = [
+  { q: t("faq.q1.question"), a: t("faq.q1.answer") },
+  { q: t("faq.q2.question"), a: t("faq.q2.answer") },
+  { q: t("faq.q3.question"), a: t("faq.q3.answer") },
+  { q: t("faq.q4.question"), a: t("faq.q4.answer") },
+  { q: t("faq.q5.question"), a: t("faq.q5.answer") },
+] as const;
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="faq">
+  <div class="text-center mb-16">
+    <h2 class="text-headline-md text-on-background gold-line mx-auto">{t("faq.title")}</h2>
+    <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("faq.subtitle")}</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto border-t border-outline-variant/30" id="faq-accordion">
+    {
+      items.map((item, i) => (
+        <div class:list={["border-b border-outline-variant/30 border-l-2", i === 0 ? "border-l-primary" : "border-l-transparent"]}>
+          <button
+            type="button"
+            class="faq-toggle w-full flex justify-between items-center gap-4 py-6 px-2 text-left"
+            data-faq-toggle={i}
+            aria-expanded={i === 0 ? "true" : "false"}
+          >
+            <span class="text-body-lg text-on-background">{item.q}</span>
+            <span class="material-symbols-outlined faq-icon text-primary shrink-0" aria-hidden="true">
+              {i === 0 ? "remove" : "add"}
+            </span>
+          </button>
+          <div class:list={["faq-panel px-2 pb-6", { hidden: i !== 0 }]} data-faq-panel={i}>
+            <p class="text-body-md text-on-surface-variant">{item.a}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  function initFaqAccordion() {
+    const root = document.getElementById("faq-accordion");
+    if (!root) return;
+
+    const toggles = Array.from(root.querySelectorAll<HTMLButtonElement>(".faq-toggle"));
+    if (!toggles.length) return;
+
+    const setOpen = (index: number) => {
+      toggles.forEach((toggle) => {
+        const i = Number(toggle.dataset.faqToggle);
+        const isOpen = i === index;
+        const item = toggle.closest("div");
+        const panel = item?.querySelector<HTMLElement>(`[data-faq-panel="${i}"]`);
+        const icon = toggle.querySelector(".faq-icon");
+
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        item?.classList.toggle("border-l-primary", isOpen);
+        item?.classList.toggle("border-l-transparent", !isOpen);
+        panel?.classList.toggle("hidden", !isOpen);
+        if (icon) icon.textContent = isOpen ? "remove" : "add";
+      });
+    };
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const index = Number(toggle.dataset.faqToggle);
+        const isCurrentlyOpen = toggle.getAttribute("aria-expanded") === "true";
+        setOpen(isCurrentlyOpen ? -1 : index);
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initFaqAccordion);
+</script>

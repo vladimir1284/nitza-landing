@@ -80,6 +80,36 @@ export const ui = {
     "menu.item4.desc":
       "Auditoría de arquitectura y elección de stack antes de escribir una línea de código. Reduce el riesgo técnico desde el inicio.",
 
+    "process.title": "Cómo Trabajamos",
+    "process.subtitle": "Tres tiempos, un mismo plato: transparencia de principio a fin.",
+    "process.step1.title": "La Cata",
+    "process.step1.desc":
+      "Sesión de discovery para entender su negocio, alcance y objetivos. Salimos con una propuesta clara y un estimado de tiempos.",
+    "process.step2.title": "La Cocción",
+    "process.step2.desc":
+      "Desarrollo en sprints cortos con entregas visibles cada semana. Usted prueba el progreso, no espera a ciegas el resultado final.",
+    "process.step3.title": "El Servicio",
+    "process.step3.desc":
+      "Entrega, documentación y acompañamiento post-lanzamiento. Seguimos disponibles para ajustes y la siguiente fase.",
+
+    "faq.title": "Preguntas Frecuentes",
+    "faq.subtitle": "Lo que suelen preguntar antes de sentarse a la mesa.",
+    "faq.q1.question": "¿Firman NDA / acuerdo de confidencialidad?",
+    "faq.q1.answer":
+      "Sí. Firmamos NDA antes de la sesión de discovery si el cliente lo requiere, sin costo adicional.",
+    "faq.q2.question": "¿En qué zona horaria trabajan?",
+    "faq.q2.answer":
+      "Equipo bilingüe ES/EN con solapamiento horario amplio con América y parcial con Europa. Coordinamos reuniones según su franja.",
+    "faq.q3.question": "¿Cuál es la permanencia mínima en Chef Residente?",
+    "faq.q3.answer":
+      "Contrato mensual, sin permanencia forzada más allá del mes en curso. Puede pausar o cerrar con un mes de aviso.",
+    "faq.q4.question": "¿Quién es dueño del código al finalizar?",
+    "faq.q4.answer":
+      "Usted. Código fuente, documentación y credenciales se entregan completos al cierre del proyecto o contrato.",
+    "faq.q5.question": "¿Cómo es la forma de pago?",
+    "faq.q5.answer":
+      "Depende del modelo: Carta Completa se factura por hitos de entrega, Chef Residente con facturación mensual recurrente.",
+
     "services.title": "Ingredientes de la Casa",
     "services.subtitle":
       "Un equipo, varios años cocinando juntos. Servimos distinto según quién se siente a la mesa.",
@@ -197,10 +227,25 @@ export const ui = {
     "blog.updated": "Actualizado",
     "blog.category.nota-de-cata": "Nota de Cata",
 
+    "contact.title": "Escríbanos",
+    "contact.subtitle": "¿Prefiere dejarnos su consulta por escrito? Respondemos en menos de 24 horas.",
+    "contact.name.label": "Nombre",
+    "contact.name.placeholder": "Su nombre",
+    "contact.email.label": "Correo",
+    "contact.email.placeholder": "usted@empresa.com",
+    "contact.message.label": "Mensaje",
+    "contact.message.placeholder": "Cuéntenos qué necesita...",
+    "contact.submit": "Enviar Mensaje",
+    "contact.submitting": "Enviando...",
+    "contact.success": "Mensaje recibido. Le responderemos pronto.",
+    "contact.error": "No pudimos enviar su mensaje. Intente de nuevo o escríbanos por WhatsApp.",
+    "contact.error.validation": "Complete todos los campos antes de enviar.",
+
     "footer.copyright":
       "© {year} Nitza Develop. Todos los derechos reservados.",
     "footer.manifesto": "El Manifiesto",
     "footer.kitchen": "La Cocina",
+    "footer.contact": "Escríbanos",
     "footer.privateDining": "Atención Privada",
     "footer.email": "Escríbenos por correo",
 
@@ -282,6 +327,36 @@ export const ui = {
     "menu.item4.tag": "Consulting",
     "menu.item4.desc":
       "Architecture audits and stack selection before writing a line of code. Reduce technical risk from day one.",
+
+    "process.title": "How We Work",
+    "process.subtitle": "Three courses, one meal: transparent from start to finish.",
+    "process.step1.title": "The Tasting",
+    "process.step1.desc":
+      "A discovery session to understand your business, scope, and goals. We come out with a clear proposal and a time estimate.",
+    "process.step2.title": "The Cooking",
+    "process.step2.desc":
+      "Development in short sprints with visible deliveries every week. You see progress as it happens, not just the final result.",
+    "process.step3.title": "The Serving",
+    "process.step3.desc":
+      "Delivery, documentation, and post-launch support. We stay available for adjustments and the next phase.",
+
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "What people usually ask before sitting down at the table.",
+    "faq.q1.question": "Do you sign NDAs?",
+    "faq.q1.answer":
+      "Yes. We sign an NDA before the discovery session if the client requires it, at no extra cost.",
+    "faq.q2.question": "What time zone do you work in?",
+    "faq.q2.answer":
+      "A bilingual ES/EN team with wide overlap with the Americas and partial overlap with Europe. We schedule meetings around your window.",
+    "faq.q3.question": "What's the minimum commitment for Chef in Residence?",
+    "faq.q3.answer":
+      "A monthly contract, no commitment beyond the current month. You can pause or close with a month's notice.",
+    "faq.q4.question": "Who owns the code when the project ends?",
+    "faq.q4.answer":
+      "You do. Source code, documentation, and credentials are handed over in full at the end of the project or contract.",
+    "faq.q5.question": "How does payment work?",
+    "faq.q5.answer":
+      "Depends on the model: Full Menu bills by delivery milestones, Chef in Residence bills monthly on a recurring basis.",
 
     "services.title": "The House Ingredients",
     "services.subtitle":
@@ -400,9 +475,24 @@ export const ui = {
     "blog.updated": "Updated",
     "blog.category.nota-de-cata": "Tasting Note",
 
+    "contact.title": "Get in Touch",
+    "contact.subtitle": "Prefer to write instead? We reply within 24 hours.",
+    "contact.name.label": "Name",
+    "contact.name.placeholder": "Your name",
+    "contact.email.label": "Email",
+    "contact.email.placeholder": "you@company.com",
+    "contact.message.label": "Message",
+    "contact.message.placeholder": "Tell us what you need...",
+    "contact.submit": "Send Message",
+    "contact.submitting": "Sending...",
+    "contact.success": "Message received. We'll get back to you soon.",
+    "contact.error": "We couldn't send your message. Try again or reach us on WhatsApp.",
+    "contact.error.validation": "Fill in every field before sending.",
+
     "footer.copyright": "© {year} Nitza Develop. All rights reserved.",
     "footer.manifesto": "The Manifesto",
     "footer.kitchen": "The Kitchen",
+    "footer.contact": "Get in Touch",
     "footer.privateDining": "Private Dining",
     "footer.email": "Email us",
 
