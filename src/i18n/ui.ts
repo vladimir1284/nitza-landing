@@ -56,19 +56,23 @@ export const ui = {
     "team.member5.desc":
       "Aprende con hambre en cada estación de la cocina: fullstack con mano firme para el frontend.",
 
-    "menu.title": "El Menú de la Casa",
-    "menu.item1.title": "Especialidad de la Casa",
+    "menu.title": "Nuestros Servicios",
+    "menu.item1.title": "Desarrollo a Medida",
     "menu.item1.tag": "Custom Dev",
     "menu.item1.desc":
-      "Aplicaciones a la medida diseñadas desde cero con ingredientes técnicos de primer nivel. Ideal para paladares corporativos exigentes.",
-    "menu.item2.title": "Cocina al Minuto",
+      "Aplicaciones web y software desde cero, hechas a la medida de tu negocio. Arquitectura sólida, sin plantillas genéricas.",
+    "menu.item2.title": "MVP y Prototipos",
     "menu.item2.tag": "MVP / Proto",
     "menu.item2.desc":
-      "Desarrollo ágil y rápido para validar conceptos en el mercado. Servido caliente y listo para iterar.",
-    "menu.item3.title": "Cocción Lenta",
-    "menu.item3.tag": "Support",
+      "Desarrollo ágil para validar tu idea en el mercado rápido. De la idea al producto funcional en semanas.",
+    "menu.item3.title": "Migración de Sistemas Legacy",
+    "menu.item3.tag": "Legacy Migration",
     "menu.item3.desc":
-      "Mantenimiento preventivo, auditorías de seguridad y refactorización. El cuidado continuo que su plataforma merece.",
+      "Modernizamos aplicaciones antiguas a stacks actuales sin interrumpir tu operación: migración de código, base de datos e infraestructura con riesgo controlado.",
+    "menu.item4.title": "Consultoría Técnica",
+    "menu.item4.tag": "Consulting",
+    "menu.item4.desc":
+      "Auditoría de arquitectura y elección de stack antes de escribir una línea de código. Reduce el riesgo técnico desde el inicio.",
 
     "services.title": "Ingredientes de la Casa",
     "services.subtitle":
@@ -204,19 +208,23 @@ export const ui = {
     "team.member5.desc":
       "Learns hungrily at every station in the kitchen: full-stack with a firm hand for frontend.",
 
-    "menu.title": "The House Menu",
-    "menu.item1.title": "House Specialty",
+    "menu.title": "Our Services",
+    "menu.item1.title": "Custom Development",
     "menu.item1.tag": "Custom Dev",
     "menu.item1.desc":
-      "Tailor-made applications designed from scratch with top-tier technical ingredients. Ideal for demanding corporate palates.",
-    "menu.item2.title": "Minute-Made Kitchen",
+      "Web applications and software built from scratch, tailored to your business. Solid architecture, no generic templates.",
+    "menu.item2.title": "MVPs and Prototypes",
     "menu.item2.tag": "MVP / Proto",
     "menu.item2.desc":
-      "Agile, fast development to validate ideas in the market. Served hot and ready to iterate.",
-    "menu.item3.title": "Slow Simmer",
-    "menu.item3.tag": "Support",
+      "Agile development to validate your idea in the market fast. From concept to working product in weeks.",
+    "menu.item3.title": "Legacy System Migration",
+    "menu.item3.tag": "Legacy Migration",
     "menu.item3.desc":
-      "Preventive maintenance, security audits, and refactoring. The ongoing care your platform deserves.",
+      "We modernize old applications to current stacks without stopping your operation: code, database, and infrastructure migration with controlled risk.",
+    "menu.item4.title": "Technical Consulting",
+    "menu.item4.tag": "Consulting",
+    "menu.item4.desc":
+      "Architecture audits and stack selection before writing a line of code. Reduce technical risk from day one.",
 
     "services.title": "The House Ingredients",
     "services.subtitle":

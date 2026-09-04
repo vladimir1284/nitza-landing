@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "../i18n/utils";
-import knifeCustomDev from "../assets/images/knife-custom-dev.png";
-import hourglassMvp from "../assets/images/hourglass-mvp.png";
+import type { ui, defaultLang } from "../i18n/ui";
+
+type TranslationKey = keyof (typeof ui)[typeof defaultLang];
 
 interface Props {
   lang: Lang;
@@ -10,6 +10,25 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const items = [
+  {
+    key: "item1",
+    icon: "code",
+  },
+  {
+    key: "item2",
+    icon: "rocket",
+  },
+  {
+    key: "item3",
+    icon: "migrate",
+  },
+  {
+    key: "item4",
+    icon: "compass",
+  },
+] as const;
 ---
 
 <section class="py-section-gap border-t border-outline-variant/30" id="menu">
@@ -27,52 +46,122 @@ const t = useTranslations(lang);
     </div>
 
     <div class="space-y-10 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-      <div>
-        <div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video">
-          <Image
-            alt={t("menu.item1.title")}
-            class="w-full h-full object-cover"
-            src={knifeCustomDev}
-            loading="lazy"
-            widths={[400, 640, 960]}
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-        </div>
-        <div class="flex items-baseline mb-2">
-          <h3 class="text-headline-sm text-on-background">{t("menu.item1.title")}</h3>
-          <div class="menu-leader-line"></div>
-          <span class="text-label-caps text-primary tracking-widest">{t("menu.item1.tag")}</span>
-        </div>
-        <p class="text-body-md text-on-surface-variant italic">{t("menu.item1.desc")}</p>
-      </div>
-
-      <div>
-        <div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video">
-          <Image
-            alt={t("menu.item2.title")}
-            class="w-full h-full object-cover"
-            src={hourglassMvp}
-            loading="lazy"
-            widths={[400, 640, 960]}
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-        </div>
-        <div class="flex items-baseline mb-2">
-          <h3 class="text-headline-sm text-on-background">{t("menu.item2.title")}</h3>
-          <div class="menu-leader-line"></div>
-          <span class="text-label-caps text-primary tracking-widest">{t("menu.item2.tag")}</span>
-        </div>
-        <p class="text-body-md text-on-surface-variant italic">{t("menu.item2.desc")}</p>
-      </div>
-
-      <div>
-        <div class="flex items-baseline mb-2">
-          <h3 class="text-headline-sm text-on-background">{t("menu.item3.title")}</h3>
-          <div class="menu-leader-line"></div>
-          <span class="text-label-caps text-primary tracking-widest">{t("menu.item3.tag")}</span>
-        </div>
-        <p class="text-body-md text-on-surface-variant italic">{t("menu.item3.desc")}</p>
-      </div>
+      {
+        items.map((item) => (
+          <div>
+            <div class="mb-4 rounded overflow-hidden border border-outline-variant/30 aspect-video bg-surface-container flex items-center justify-center">
+              {item.icon === "code" && (
+                <svg
+                  class="w-20 h-20 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+                  <circle cx="12" cy="12" r="8.2" stroke-opacity="0.15" stroke-width="1" />
+                  <path
+                    d="M3.5 17c1.8-2.4 3.6-2.4 5.2-.8s3.2 1.6 5-.6"
+                    stroke-opacity="0.35"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="6" cy="6.5" r="0.4" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="18.2" cy="7.5" r="0.35" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="17" cy="17.5" r="0.3" fill="currentColor" stroke="none" opacity="0.5" />
+                  <path d="M9 9l-3 3 3 3M15 9l3 3-3 3M13.5 7l-3 10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              )}
+              {item.icon === "rocket" && (
+                <svg
+                  class="w-20 h-20 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+                  <circle cx="12" cy="12" r="8.2" stroke-opacity="0.15" stroke-width="1" />
+                  <path
+                    d="M4 15.5c2-2.6 4-2.6 6-.8s4 1.8 6-.6"
+                    stroke-opacity="0.35"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="6.5" cy="7" r="0.35" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="18" cy="6.5" r="0.4" fill="currentColor" stroke="none" opacity="0.5" />
+                  <path
+                    d="M12 3.5c2.2 1.4 3.6 3.9 3.6 6.9 0 1.8-.5 3.5-1.4 4.8L12 17.5l-2.2-2.3c-.9-1.3-1.4-3-1.4-4.8 0-3 1.4-5.5 3.6-6.9z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="12" cy="9.5" r="1.3" />
+                  <path d="M9.2 14.5 7.5 18.5l3-1.2M14.8 14.5l1.7 4-3-1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              )}
+              {item.icon === "migrate" && (
+                <svg
+                  class="w-20 h-20 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+                  <circle cx="12" cy="12" r="8.2" stroke-opacity="0.15" stroke-width="1" />
+                  <path
+                    d="M4 8c1.8 2 3.6 2 5.2.4"
+                    stroke-opacity="0.35"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="18" cy="17.5" r="0.35" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="6" cy="17" r="0.3" fill="currentColor" stroke="none" opacity="0.5" />
+                  <rect x="4.2" y="9.5" width="5" height="6" rx="0.5" />
+                  <path d="M6.7 11.5v2" stroke-linecap="round" />
+                  <path d="M10.5 12.5h6.3" stroke-linecap="round" />
+                  <path d="M14.5 10.2l2.8 2.3-2.8 2.3" stroke-linecap="round" stroke-linejoin="round" />
+                  <rect x="17.8" y="9" width="5.2" height="7" rx="1.4" />
+                  <path d="M19.4 11.3h2" stroke-linecap="round" />
+                  <path d="M19.4 13.7h2" stroke-linecap="round" />
+                </svg>
+              )}
+              {item.icon === "compass" && (
+                <svg
+                  class="w-20 h-20 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+                  <circle cx="12" cy="12" r="8.2" stroke-opacity="0.15" stroke-width="1" />
+                  <path
+                    d="M4.5 16.5c2-2.2 4-2.2 6-.4s4 1.8 6-.4"
+                    stroke-opacity="0.35"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="6.5" cy="6.5" r="0.35" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="17.5" cy="7" r="0.4" fill="currentColor" stroke="none" opacity="0.5" />
+                  <circle cx="12" cy="12" r="6.3" />
+                  <path d="M14.6 9.4l-1.4 3.6-3.6 1.4 1.4-3.6z" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              )}
+            </div>
+            <div class="flex items-baseline mb-2">
+              <h3 class="text-headline-sm text-on-background">{t(`menu.${item.key}.title` as TranslationKey)}</h3>
+              <div class="menu-leader-line" />
+              <span class="text-label-caps text-primary tracking-widest">{t(`menu.${item.key}.tag` as TranslationKey)}</span>
+            </div>
+            <p class="text-body-md text-on-surface-variant italic">{t(`menu.${item.key}.desc` as TranslationKey)}</p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
