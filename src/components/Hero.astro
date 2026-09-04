@@ -9,6 +9,8 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
+const yearsAsTeam = new Date().getFullYear() - 2022;
+
 const services = [
   { key: "item1", icon: "code" },
   { key: "item2", icon: "rocket" },
@@ -45,7 +47,7 @@ const services = [
         <div class="text-label-caps text-on-surface-variant mt-1">{t("hero.stat1.label")}</div>
       </div>
       <div class="pl-6 border-l border-outline-variant/30">
-        <div class="hero-stat-value text-on-background tabular-nums">{t("hero.stat2.value")}</div>
+        <div class="hero-stat-value text-on-background tabular-nums">{yearsAsTeam}+</div>
         <div class="text-label-caps text-on-surface-variant mt-1">{t("hero.stat2.label")}</div>
       </div>
       <div class="pl-6 border-l border-outline-variant/30">
