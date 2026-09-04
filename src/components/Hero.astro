@@ -34,7 +34,7 @@ const services = [
       <WhatsAppLink message={t("cta.whatsappMessage")} class="inline-flex items-center justify-center px-8 py-4 bg-on-primary-fixed text-primary-fixed border border-on-primary-fixed text-label-caps hover:bg-primary-container hover:text-on-background transition-all duration-300 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
         {t("hero.cta")}
       </WhatsAppLink>
-      <a href="#menu" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+      <a href="#tech" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
         {t("hero.secondaryCta")}
       </a>
     </div>
@@ -115,7 +115,7 @@ const services = [
             </div>
               <h3 class="text-body-lg text-on-background">{t(`menu.${service.key}.title` as TranslationKey)}</h3>
             </div>
-            <p class="text-body-md text-on-surface-variant italic">{t(`menu.${service.key}.desc` as TranslationKey)}</p>
+            <p class="text-body-sm text-on-surface-variant italic pl-[52px]">{t(`menu.${service.key}.desc` as TranslationKey)}</p>
           </div>
         ))
       }

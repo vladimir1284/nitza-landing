@@ -26,7 +26,7 @@ export const ui = {
     "hero.subtitle":
       "Transformamos tus necesidades de negocio en recetas digitales de alta precisión. La sazón del buen código, servida a tiempo.",
     "hero.cta": "Pide una cata inicial",
-    "hero.secondaryCta": "Ver el menú",
+    "hero.secondaryCta": "Ver ingredientes",
     "hero.stat1.value": "5",
     "hero.stat1.label": "Especialistas en la brigada",
     "hero.stat2.value": "ES/EN",
@@ -186,7 +186,7 @@ export const ui = {
     "hero.subtitle":
       "We turn your business needs into high-precision digital recipes. The flavor of good code, served on time.",
     "hero.cta": "Book an initial tasting",
-    "hero.secondaryCta": "View the menu",
+    "hero.secondaryCta": "View ingredients",
     "hero.stat1.value": "5",
     "hero.stat1.label": "Specialists in the brigade",
     "hero.stat2.value": "EN/ES",
