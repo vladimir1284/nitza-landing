@@ -199,6 +199,36 @@
 @layer base {
   body {
     font-family: var(--font-body);
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  a,
+  button,
+  [role="button"],
+  summary {
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    cursor: text;
+    -webkit-user-select: text;
+    user-select: text;
   }
 }
 
