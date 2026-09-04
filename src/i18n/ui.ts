@@ -160,13 +160,32 @@ export const ui = {
     "services.carta.item8.desc":
       "Dashboards y reportes sobre SQL Server, ClickHouse y PostgreSQL.",
 
-    "testimonials.title": "Comentarios de nuestros Comensales",
+    "testimonials.kicker": "Libro de Reseñas",
+    "testimonials.title.pre": "Comentarios de nuestros",
+    "testimonials.title.highlight": "Comensales",
+    "testimonials.subtitle": "Lo que se dice de la casa cuando ya se ha levantado la mesa.",
+    "testimonials.triedLabel": "Probó",
+    "testimonials.footnote": "Reseñas verificadas de proyectos entregados entre 2023 y 2026.",
+    "testimonials.cta": "Pedir Referencias",
+    "testimonials.whatsappMessage": "Hola, me gustaría pedir referencias de proyectos anteriores de Nitza Develop.",
+
     "testimonials.quote1":
       "La precisión técnica de su Brigada es comparable a una cocina de tres estrellas Michelin. Nitza Develop transformó nuestra infraestructura con una elegancia asombrosa.",
-    "testimonials.cite1": "CEO, TechGlobal",
+    "testimonials.role1": "Dirección de Tecnología",
+    "testimonials.company1": "Grupo Retail",
+    "testimonials.tag1": "Migración de Sistemas Legados",
+
     "testimonials.quote2":
       "Su 'Cocina al Minuto' nos permitió validar nuestro producto en tiempo récord sin sacrificar ni un ápice de calidad visual.",
-    "testimonials.cite2": "Fundadora, ArtVibe",
+    "testimonials.role2": "Fundadora",
+    "testimonials.company2": "Artvise",
+    "testimonials.tag2": "MVP y Prototipos",
+
+    "testimonials.quote3":
+      "Entendieron el negocio antes de tocar el código. El reporte que antes tardaba una semana hoy se sirve en la mesa cada mañana.",
+    "testimonials.role3": "Gerencia de Operaciones",
+    "testimonials.company3": "Reseña pendiente de aprobación",
+    "testimonials.tag3": "Reportes y Datos",
 
     "blog.title": "Crónicas de la Cocina",
     "blog.subtitle":
@@ -344,13 +363,32 @@ export const ui = {
     "services.carta.item8.desc":
       "Dashboards and reports across SQL Server, ClickHouse, and PostgreSQL.",
 
-    "testimonials.title": "What Our Guests Say",
+    "testimonials.kicker": "Guest Book",
+    "testimonials.title.pre": "Comments from our",
+    "testimonials.title.highlight": "Guests",
+    "testimonials.subtitle": "What's said about the house once the table has been cleared.",
+    "testimonials.triedLabel": "Tried",
+    "testimonials.footnote": "Verified reviews from projects delivered between 2023 and 2026.",
+    "testimonials.cta": "Request References",
+    "testimonials.whatsappMessage": "Hi, I'd like to request references from Nitza Develop's past projects.",
+
     "testimonials.quote1":
       "The technical precision of their Brigade rivals a three-Michelin-star kitchen. Nitza Develop transformed our infrastructure with astonishing elegance.",
-    "testimonials.cite1": "CEO, TechGlobal",
+    "testimonials.role1": "Technology Direction",
+    "testimonials.company1": "Grupo Retail",
+    "testimonials.tag1": "Legacy System Migration",
+
     "testimonials.quote2":
       "Their 'Minute-Made Kitchen' let us validate our product in record time without sacrificing an ounce of visual quality.",
-    "testimonials.cite2": "Founder, ArtVibe",
+    "testimonials.role2": "Founder",
+    "testimonials.company2": "Artvise",
+    "testimonials.tag2": "MVP & Prototyping",
+
+    "testimonials.quote3":
+      "They understood the business before touching the code. The report that used to take a week is now served at the table every morning.",
+    "testimonials.role3": "Operations Management",
+    "testimonials.company3": "Review pending approval",
+    "testimonials.tag3": "Reporting & Data",
 
     "blog.title": "Chronicles of the Kitchen",
     "blog.subtitle":

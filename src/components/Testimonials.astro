@@ -1,5 +1,6 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
+import WhatsAppLink from "./ui/WhatsAppLink.astro";
 
 interface Props {
   lang: Lang;
@@ -9,36 +10,92 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const testimonials = [
-  { quote: t("testimonials.quote1"), cite: t("testimonials.cite1") },
-  { quote: t("testimonials.quote2"), cite: t("testimonials.cite2") },
+  {
+    quote: t("testimonials.quote1"),
+    role: t("testimonials.role1"),
+    company: t("testimonials.company1"),
+    tag: t("testimonials.tag1"),
+    pending: false,
+  },
+  {
+    quote: t("testimonials.quote2"),
+    role: t("testimonials.role2"),
+    company: t("testimonials.company2"),
+    tag: t("testimonials.tag2"),
+    pending: false,
+  },
+  {
+    quote: t("testimonials.quote3"),
+    role: t("testimonials.role3"),
+    company: t("testimonials.company3"),
+    tag: t("testimonials.tag3"),
+    pending: true,
+  },
 ];
 ---
 
 <section class="py-section-gap border-t border-outline-variant/30" id="testimonials">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-headline-md text-on-background font-serif italic">{t("testimonials.title")}</h2>
-      <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-8 h-px bg-primary-container" aria-hidden="true"></span>
+        <span class="text-label-caps text-primary">{t("testimonials.kicker")}</span>
+      </div>
+      <h2 class="text-headline-md text-on-background font-serif italic">
+        {t("testimonials.title.pre")} <span class="text-primary">{t("testimonials.title.highlight")}</span>
+      </h2>
     </div>
-    <div class="space-y-16">
-      {
-        testimonials.map((item) => (
-          <div class="flex flex-col items-center text-center">
-            <span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg mb-4" aria-hidden="true">
+    <p class="text-body-md text-on-surface-variant italic md:text-right max-w-sm">{t("testimonials.subtitle")}</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 border-t border-outline-variant/30">
+    {
+      testimonials.map((item, i) => (
+        <div
+          class:list={[
+            "flex flex-col h-full p-8 md:p-10 border-b border-outline-variant/30 md:border-b-0",
+            i > 0 && "md:border-l md:border-outline-variant/30",
+          ]}
+        >
+          <div class="flex items-start justify-between mb-4">
+            <span class="material-symbols-outlined text-primary-container opacity-30 text-display-lg" aria-hidden="true">
               format_quote
             </span>
-            <blockquote
-              class="text-headline-sm font-serif italic text-on-background mb-6"
-              set:html={item.quote.replace("Nitza Develop", '<span class="font-script not-italic text-[1.15em] font-normal">Nitza Develop</span>')}
-            />
-            <div class="flex items-center gap-4">
-              <div class="h-px w-8 bg-outline-variant" />
-              <cite class="text-label-caps text-primary not-italic tracking-widest">{item.cite}</cite>
-              <div class="h-px w-8 bg-outline-variant" />
+            <span class="text-body-md text-on-surface-variant/40">{String(i + 1).padStart(2, "0")}</span>
+          </div>
+
+          <blockquote
+            class="text-headline-sm font-serif italic text-on-background mb-10 grow"
+            set:html={item.quote.replace("Nitza Develop", '<span class="font-script not-italic text-[1.15em] font-normal">Nitza Develop</span>')}
+          />
+
+          <div class="flex items-center gap-4 pt-6 border-t border-outline-variant/30 mt-auto">
+            <div class="w-14 h-14 rounded-full bg-surface-container-high border border-outline-variant/60 shrink-0" aria-hidden="true" />
+            <div class="min-w-0 flex-1">
+              <cite class="text-label-caps text-on-background not-italic block truncate" title={item.role}>{item.role}</cite>
+              <p
+                class:list={["text-body-md italic truncate", item.pending ? "text-on-surface-variant" : "text-primary"]}
+                title={item.company}
+              >
+                {item.company}
+              </p>
+              <p class="text-label-caps text-on-surface-variant/60 mt-1 truncate" title={`${t("testimonials.triedLabel")} · ${item.tag}`}>
+                {t("testimonials.triedLabel")} · {item.tag}
+              </p>
             </div>
           </div>
-        ))
-      }
-    </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
+    <p class="text-body-md text-on-surface-variant italic">{t("testimonials.footnote")}</p>
+    <WhatsAppLink
+      message={t("testimonials.whatsappMessage")}
+      class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded shrink-0"
+    >
+      {t("testimonials.cta")}
+    </WhatsAppLink>
   </div>
 </section>
