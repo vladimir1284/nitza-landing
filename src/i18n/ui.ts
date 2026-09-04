@@ -19,12 +19,20 @@ export const ui = {
     "nav.blog": "Crónicas",
     "nav.reserve": "Reserve",
 
-    "hero.title": "Un software a la medida del gusto más exigente.",
+    "hero.kicker": "Cocina de software a la carta",
+    "hero.title.pre": "Un software a la medida",
+    "hero.title.highlight": "del gusto más exigente",
+    "hero.title.post": ".",
     "hero.subtitle":
       "Transformamos tus necesidades de negocio en recetas digitales de alta precisión. La sazón del buen código, servida a tiempo.",
     "hero.cta": "Pide una cata inicial",
-    "hero.image.alt":
-      "Campana de plata digital revelando alta cocina de software",
+    "hero.secondaryCta": "Ver el menú",
+    "hero.stat1.value": "5",
+    "hero.stat1.label": "Especialistas en la brigada",
+    "hero.stat2.value": "ES/EN",
+    "hero.stat2.label": "Equipo bilingüe",
+    "hero.stat3.value": "XX+",
+    "hero.stat3.label": "Proyectos entregados",
 
     "team.title": "La Brigada de Cocina",
     "team.subtitle":
@@ -56,7 +64,6 @@ export const ui = {
     "team.member5.desc":
       "Aprende con hambre en cada estación de la cocina: fullstack con mano firme para el frontend.",
 
-    "menu.title": "Nuestros Servicios",
     "menu.item1.title": "Desarrollo a Medida",
     "menu.item1.tag": "Custom Dev",
     "menu.item1.desc":
@@ -172,11 +179,20 @@ export const ui = {
     "nav.blog": "Chronicles",
     "nav.reserve": "Reserve",
 
-    "hero.title": "Software tailored to the most demanding taste.",
+    "hero.kicker": "Software cuisine, à la carte",
+    "hero.title.pre": "Software tailored to",
+    "hero.title.highlight": "the most demanding taste",
+    "hero.title.post": ".",
     "hero.subtitle":
       "We turn your business needs into high-precision digital recipes. The flavor of good code, served on time.",
     "hero.cta": "Book an initial tasting",
-    "hero.image.alt": "Digital silver cloche revealing haute software cuisine",
+    "hero.secondaryCta": "View the menu",
+    "hero.stat1.value": "5",
+    "hero.stat1.label": "Specialists in the brigade",
+    "hero.stat2.value": "EN/ES",
+    "hero.stat2.label": "Bilingual team",
+    "hero.stat3.value": "XX+",
+    "hero.stat3.label": "Projects delivered",
 
     "team.title": "The Kitchen Brigade",
     "team.subtitle":
@@ -208,7 +224,6 @@ export const ui = {
     "team.member5.desc":
       "Learns hungrily at every station in the kitchen: full-stack with a firm hand for frontend.",
 
-    "menu.title": "Our Services",
     "menu.item1.title": "Custom Development",
     "menu.item1.tag": "Custom Dev",
     "menu.item1.desc":

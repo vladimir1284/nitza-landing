@@ -287,27 +287,4 @@
     background-color: var(--color-primary-container);
   }
 
-  .menu-leader-line {
-    flex-grow: 1;
-    border-bottom: 1px dotted var(--color-outline);
-    margin: 0 16px 8px 16px;
-  }
-
-  .cloche-reveal {
-    animation: revealCloche 3s ease-in-out infinite alternate;
-  }
-  @keyframes revealCloche {
-    0% {
-      transform: translateY(0) rotate(0);
-    }
-    100% {
-      transform: translateY(-20px) rotate(-5deg);
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cloche-reveal {
-    animation: none;
-  }
 }
