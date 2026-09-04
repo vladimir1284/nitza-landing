@@ -88,23 +88,47 @@ export const ui = {
     "services.residente.title": "Chef Residente",
     "services.residente.desc":
       "Nos incorporamos a su cocina existente. Equipo bilingüe (ES/EN) que se integra con personal técnico y no técnico, aportando el ingrediente exacto que falta en su brigada.",
+    "services.residente.stats.stations": "Estaciones",
+    "services.residente.stats.ingredients": "Ingredientes",
+    "services.residente.stationLabel": "Estación",
+    "services.residente.miseEnPlace": "Mise en Place",
+    "services.residente.cta": "Reservar esta estación",
+    "services.residente.ctaNote": "Incorporación en 2 semanas · contrato mensual",
+    "services.residente.whatsappMessage":
+      "Hola, quiero reservar una estación de Chef Residente.",
     "services.cat.mobile": "Móvil",
     "services.cat.mobile.items": "Android, iOS, Capacitor, Capgo, Quasar",
+    "services.cat.mobile.desc":
+      "Aplicaciones nativas Android e iOS, del diseño a la publicación en tienda, con un desarrollador integrado en su equipo.",
     "services.cat.ai": "Inteligencia Artificial",
     "services.cat.ai.items": "Agentes IA, RAG, Fine-tuning, Machine Learning",
+    "services.cat.ai.desc":
+      "Agentes IA, RAG y modelos de machine learning, con un especialista integrado directo en su equipo de producto.",
     "services.cat.backend": "Backend",
     "services.cat.backend.items": "Node.js, Python, Django, Flask, FastAPI",
+    "services.cat.backend.desc":
+      "Servicios y APIs robustas sobre el stack que ya usa su equipo, con un ingeniero backend integrado a su ritmo de entrega.",
     "services.cat.frontend": "Frontend y Diseño",
     "services.cat.frontend.items": "Storybook, Vuetify, Tailwind, SCSS",
+    "services.cat.frontend.desc":
+      "Interfaces cuidadas y sistemas de diseño consistentes, con un desarrollador frontend trabajando codo a codo con su equipo.",
     "services.cat.data": "Datos",
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL, Metabase, Jupyter Notebooks",
+    "services.cat.data.desc":
+      "Modelado, reportes y pipelines sobre su stack de datos existente, con un especialista integrado a su equipo analítico.",
     "services.cat.devops": "DevOps y Cloud",
     "services.cat.devops.items":
       "Docker, Swarm, AWS, Cloudflare, Jenkins, GitHub Actions, Azure DevOps, GitLab",
+    "services.cat.devops.desc":
+      "Infraestructura, CI/CD y observabilidad sobre su nube actual, con un ingeniero DevOps integrado a su equipo de plataforma.",
     "services.cat.architecture": "Arquitectura",
     "services.cat.architecture.items": "Microservicios, Ingeniería Inversa, Event-Driven / Message Queues, API Gateway",
+    "services.cat.architecture.desc":
+      "Diseño de arquitectura y migración de sistemas, con un arquitecto integrado a las decisiones técnicas de su equipo.",
     "services.cat.quality": "Calidad y Seguridad",
     "services.cat.quality.items": "Testing / QA, Auditorías de Seguridad, BetterStack, Sentry, Graylog",
+    "services.cat.quality.desc":
+      "Testing, auditorías y monitoreo continuo, con un especialista en calidad y seguridad integrado a su equipo.",
 
     "services.carta.tag": "End-to-End",
     "services.carta.title": "Carta Completa",
@@ -247,23 +271,47 @@ export const ui = {
     "services.residente.title": "Chef in Residence",
     "services.residente.desc":
       "We join your existing kitchen. A bilingual team (EN/ES) that integrates with technical and non-technical staff alike, bringing the exact ingredient your brigade is missing.",
+    "services.residente.stats.stations": "Stations",
+    "services.residente.stats.ingredients": "Ingredients",
+    "services.residente.stationLabel": "Station",
+    "services.residente.miseEnPlace": "Mise en Place",
+    "services.residente.cta": "Reserve this station",
+    "services.residente.ctaNote": "Onboarding in 2 weeks · monthly contract",
+    "services.residente.whatsappMessage":
+      "Hi, I'd like to reserve a Chef Residente station.",
     "services.cat.mobile": "Mobile",
     "services.cat.mobile.items": "Android, iOS, Capacitor, Capgo, Quasar",
+    "services.cat.mobile.desc":
+      "Native Android and iOS apps, from design to store release, with a developer embedded in your team.",
     "services.cat.ai": "Artificial Intelligence",
     "services.cat.ai.items": "AI Agents, RAG, Fine-tuning, Machine Learning",
+    "services.cat.ai.desc":
+      "AI agents, RAG, and machine learning models, with a specialist embedded directly in your product team.",
     "services.cat.backend": "Backend",
     "services.cat.backend.items": "Node.js, Python, Django, Flask, FastAPI",
+    "services.cat.backend.desc":
+      "Robust services and APIs on the stack your team already runs, with a backend engineer embedded at your delivery pace.",
     "services.cat.frontend": "Frontend & Design",
     "services.cat.frontend.items": "Storybook, Vuetify, Tailwind, SCSS",
+    "services.cat.frontend.desc":
+      "Polished interfaces and consistent design systems, with a frontend developer working side by side with your team.",
     "services.cat.data": "Data",
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL, Metabase, Jupyter Notebooks",
+    "services.cat.data.desc":
+      "Modeling, reporting, and pipelines on your existing data stack, with a specialist embedded in your analytics team.",
     "services.cat.devops": "DevOps & Cloud",
     "services.cat.devops.items":
       "Docker, Swarm, AWS, Cloudflare, Jenkins, GitHub Actions, Azure DevOps, GitLab",
+    "services.cat.devops.desc":
+      "Infrastructure, CI/CD, and observability on your current cloud, with a DevOps engineer embedded in your platform team.",
     "services.cat.architecture": "Architecture",
     "services.cat.architecture.items": "Microservices, Reverse Engineering, Event-Driven / Message Queues, API Gateway",
+    "services.cat.architecture.desc":
+      "Architecture design and system migration, with an architect embedded in your team's technical decisions.",
     "services.cat.quality": "QA & Security",
     "services.cat.quality.items": "Testing / QA, Security Audits, BetterStack, Sentry, Graylog",
+    "services.cat.quality.desc":
+      "Testing, audits, and continuous monitoring, with a QA and security specialist embedded in your team.",
 
     "services.carta.tag": "End-to-End",
     "services.carta.title": "Full Menu",

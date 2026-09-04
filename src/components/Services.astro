@@ -1,5 +1,6 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
+import WhatsAppLink from "./ui/WhatsAppLink.astro";
 
 interface Props {
   lang: Lang;
@@ -9,15 +10,18 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const categories = [
-  { icon: "smartphone", label: t("services.cat.mobile"), items: t("services.cat.mobile.items") },
-  { icon: "smart_toy", label: t("services.cat.ai"), items: t("services.cat.ai.items") },
-  { icon: "code", label: t("services.cat.backend"), items: t("services.cat.backend.items") },
-  { icon: "palette", label: t("services.cat.frontend"), items: t("services.cat.frontend.items") },
-  { icon: "database", label: t("services.cat.data"), items: t("services.cat.data.items") },
-  { icon: "cloud", label: t("services.cat.devops"), items: t("services.cat.devops.items") },
-  { icon: "account_tree", label: t("services.cat.architecture"), items: t("services.cat.architecture.items") },
-  { icon: "verified_user", label: t("services.cat.quality"), items: t("services.cat.quality.items") },
+  { icon: "smartphone", label: t("services.cat.mobile"), items: t("services.cat.mobile.items"), desc: t("services.cat.mobile.desc") },
+  { icon: "smart_toy", label: t("services.cat.ai"), items: t("services.cat.ai.items"), desc: t("services.cat.ai.desc") },
+  { icon: "code", label: t("services.cat.backend"), items: t("services.cat.backend.items"), desc: t("services.cat.backend.desc") },
+  { icon: "palette", label: t("services.cat.frontend"), items: t("services.cat.frontend.items"), desc: t("services.cat.frontend.desc") },
+  { icon: "database", label: t("services.cat.data"), items: t("services.cat.data.items"), desc: t("services.cat.data.desc") },
+  { icon: "cloud", label: t("services.cat.devops"), items: t("services.cat.devops.items"), desc: t("services.cat.devops.desc") },
+  { icon: "account_tree", label: t("services.cat.architecture"), items: t("services.cat.architecture.items"), desc: t("services.cat.architecture.desc") },
+  { icon: "verified_user", label: t("services.cat.quality"), items: t("services.cat.quality.items"), desc: t("services.cat.quality.desc") },
 ].map((cat) => ({ ...cat, items: cat.items.split(", ") }));
+
+const stationCount = categories.length;
+const ingredientCount = categories.reduce((sum, cat) => sum + cat.items.length, 0);
 
 const cartaItems = [
   { icon: "phone_iphone", title: t("services.carta.item1.title"), desc: t("services.carta.item1.desc") },
@@ -59,29 +63,160 @@ const cartaItems = [
   </div>
 
   <div>
-    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-      <h3 class="text-headline-sm text-on-background">{t("services.residente.title")}</h3>
-      <span class="text-label-caps text-primary tracking-widest">{t("services.residente.tag")}</span>
-    </div>
-    <p class="text-body-md text-on-surface-variant italic mb-10 max-w-2xl">{t("services.residente.desc")}</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-      {
-        categories.map((cat) => (
-          <div class="bg-surface-container-low p-6 border border-outline-variant rounded-lg">
-            <span class="material-symbols-outlined text-primary mb-3 block" aria-hidden="true">
-              {cat.icon}
-            </span>
-            <h4 class="text-label-caps text-on-background mb-3">{cat.label}</h4>
-            <div class="flex flex-wrap gap-2">
-              {cat.items.map((item) => (
-                <span class="text-body-md text-on-surface-variant px-3 py-1 border border-outline-variant/50 rounded-full">
-                  {item}
-                </span>
-              ))}
+    <div class="lg:hidden">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+        <h3 class="text-headline-sm text-on-background">{t("services.residente.title")}</h3>
+        <span class="text-label-caps text-primary tracking-widest">{t("services.residente.tag")}</span>
+      </div>
+      <p class="text-body-md text-on-surface-variant italic mb-10 max-w-2xl">{t("services.residente.desc")}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+        {
+          categories.map((cat) => (
+            <div class="bg-surface-container-low p-6 border border-outline-variant rounded-lg">
+              <span class="material-symbols-outlined text-primary mb-3 block" aria-hidden="true">
+                {cat.icon}
+              </span>
+              <h4 class="text-label-caps text-on-background mb-3">{cat.label}</h4>
+              <div class="flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <span class="text-body-md text-on-surface-variant px-3 py-1 border border-outline-variant/50 rounded-full">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="hidden lg:block" id="chef-residente">
+      <div class="flex justify-between items-end gap-8 mb-8">
+        <div>
+          <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+            <h3 class="text-headline-sm text-on-background">{t("services.residente.title")}</h3>
+            <span class="text-label-caps text-primary tracking-widest">{t("services.residente.tag")}</span>
           </div>
-        ))
-      }
+          <p class="text-body-md text-on-surface-variant italic max-w-2xl">{t("services.residente.desc")}</p>
+        </div>
+        <div class="flex items-end gap-8 shrink-0">
+          <div class="text-right">
+            <span class="text-headline-md text-primary block">{stationCount}</span>
+            <span class="text-label-caps text-on-surface-variant">{t("services.residente.stats.stations")}</span>
+          </div>
+          <div class="w-px self-stretch bg-outline-variant" />
+          <div class="text-right">
+            <span class="text-headline-md text-primary block">{ingredientCount}</span>
+            <span class="text-label-caps text-on-surface-variant">{t("services.residente.stats.ingredients")}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-outline-variant/30 flex" id="chef-residente-widget">
+        <div class="w-72 shrink-0 border-r border-outline-variant/30">
+          {
+            categories.map((cat, i) => (
+              <button
+                type="button"
+                class="station-nav-btn w-full flex justify-between items-center gap-2 text-left px-4 py-5 border-b border-outline-variant/30 border-l-2 transition-colors duration-300"
+                data-station-index={i}
+                aria-current={i === 0 ? "true" : "false"}
+              >
+                <span class="flex items-baseline gap-3 min-w-0">
+                  <span class="text-body-md text-on-surface-variant/60 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="text-label-caps truncate">{cat.label}</span>
+                </span>
+                <span class="text-body-md text-on-surface-variant/60 shrink-0">{cat.items.length}</span>
+              </button>
+            ))
+          }
+        </div>
+
+        <div class="flex-1 p-10">
+          {
+            categories.map((cat, i) => (
+              <div class:list={["station-panel", { hidden: i !== 0 }]} data-station-panel={i}>
+                <div class="flex items-baseline gap-4 mb-4">
+                  <h4 class="text-headline-md text-on-background">{cat.label}</h4>
+                  <span class="text-label-caps text-primary tracking-widest">
+                    {t("services.residente.stationLabel")} {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p class="text-body-lg text-on-surface-variant max-w-2xl mb-8">{cat.desc}</p>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="w-8 h-px bg-primary-container" />
+                  <span class="text-label-caps text-on-surface-variant tracking-widest">
+                    {t("services.residente.miseEnPlace")}
+                  </span>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-10">
+                  {cat.items.map((item) => (
+                    <span class="text-body-md text-on-background px-4 py-2 border border-outline-variant rounded">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div class="border-t border-outline-variant/30 pt-6 flex items-center gap-6">
+                  <WhatsAppLink
+                    message={t("services.residente.whatsappMessage")}
+                    class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded"
+                  >
+                    {t("services.residente.cta")}
+                  </WhatsAppLink>
+                  <span class="text-body-md text-on-surface-variant italic">{t("services.residente.ctaNote")}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  function initChefResidente() {
+    const widget = document.getElementById("chef-residente-widget");
+    if (!widget) return;
+
+    const buttons = Array.from(widget.querySelectorAll<HTMLButtonElement>(".station-nav-btn"));
+    const panels = Array.from(widget.querySelectorAll<HTMLElement>(".station-panel"));
+    if (!buttons.length || !panels.length) return;
+
+    let autoplayId: ReturnType<typeof setInterval> | null = null;
+    let current = 0;
+
+    const setActive = (index: number) => {
+      current = index;
+      buttons.forEach((btn) => {
+        const isActive = Number(btn.dataset.stationIndex) === index;
+        btn.classList.toggle("bg-surface-container-low", isActive);
+        btn.classList.toggle("border-l-primary", isActive);
+        btn.classList.toggle("border-l-transparent", !isActive);
+        btn.setAttribute("aria-current", String(isActive));
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle("hidden", Number(panel.dataset.stationPanel) !== index);
+      });
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayId !== null) {
+        clearInterval(autoplayId);
+        autoplayId = null;
+      }
+    };
+
+    setActive(0);
+    autoplayId = setInterval(() => setActive((current + 1) % buttons.length), 5000);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        stopAutoplay();
+        setActive(Number(btn.dataset.stationIndex));
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initChefResidente);
+</script>
