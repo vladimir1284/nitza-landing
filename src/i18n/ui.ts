@@ -93,6 +93,7 @@ export const ui = {
     "services.residente.stationLabel": "Estación",
     "services.residente.miseEnPlace": "Mise en Place",
     "services.residente.cta": "Reservar esta estación",
+    "services.residente.ctaGeneric": "Reservar una estación",
     "services.residente.ctaNote": "Incorporación en 2 semanas · contrato mensual",
     "services.residente.whatsappMessage":
       "Hola, quiero reservar una estación de Chef Residente.",
@@ -276,6 +277,7 @@ export const ui = {
     "services.residente.stationLabel": "Station",
     "services.residente.miseEnPlace": "Mise en Place",
     "services.residente.cta": "Reserve this station",
+    "services.residente.ctaGeneric": "Reserve a station",
     "services.residente.ctaNote": "Onboarding in 2 weeks · monthly contract",
     "services.residente.whatsappMessage":
       "Hi, I'd like to reserve a Chef Residente station.",

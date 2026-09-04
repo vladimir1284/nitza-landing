@@ -23,6 +23,10 @@ const categories = [
 const stationCount = categories.length;
 const ingredientCount = categories.reduce((sum, cat) => sum + cat.items.length, 0);
 
+const residenteTitleWords = t("services.residente.title").split(" ");
+const residenteTitleFirst = residenteTitleWords[0];
+const residenteTitleRest = residenteTitleWords.slice(1).join(" ");
+
 const cartaItems = [
   { icon: "phone_iphone", title: t("services.carta.item1.title"), desc: t("services.carta.item1.desc") },
   { icon: "smart_toy", title: t("services.carta.item2.title"), desc: t("services.carta.item2.desc") },
@@ -64,29 +68,70 @@ const cartaItems = [
 
   <div>
     <div class="lg:hidden">
-      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-        <h3 class="text-headline-sm text-on-background">{t("services.residente.title")}</h3>
+      <div class="border border-outline-variant rounded-lg p-6" id="chef-residente-mobile">
         <span class="text-label-caps text-primary tracking-widest">{t("services.residente.tag")}</span>
-      </div>
-      <p class="text-body-md text-on-surface-variant italic mb-10 max-w-2xl">{t("services.residente.desc")}</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
-        {
-          categories.map((cat) => (
-            <div class="bg-surface-container-low p-6 border border-outline-variant rounded-lg">
-              <span class="material-symbols-outlined text-primary mb-3 block" aria-hidden="true">
-                {cat.icon}
-              </span>
-              <h4 class="text-label-caps text-on-background mb-3">{cat.label}</h4>
-              <div class="flex flex-wrap gap-2">
-                {cat.items.map((item) => (
-                  <span class="text-body-md text-on-surface-variant px-3 py-1 border border-outline-variant/50 rounded-full">
-                    {item}
+        <h3 class="text-headline-sm text-on-background mt-2 mb-3">
+          {residenteTitleFirst} <em class="italic text-primary">{residenteTitleRest}</em>
+        </h3>
+        <p class="text-body-md text-on-surface-variant mb-6">{t("services.residente.desc")}</p>
+
+        <div class="flex items-center gap-3 text-label-caps text-on-surface-variant mb-6">
+          <span><span class="text-body-lg text-primary">{stationCount}</span> {t("services.residente.stats.stations")}</span>
+          <span class="text-outline-variant">|</span>
+          <span><span class="text-body-lg text-primary">{ingredientCount}</span> {t("services.residente.stats.ingredients")}</span>
+        </div>
+
+        <div class="border-t border-outline-variant/30">
+          {
+            categories.map((cat, i) => (
+              <div class:list={["border-b border-outline-variant/30 border-l-2", i === 0 ? "border-l-primary" : "border-l-transparent"]}>
+                <button
+                  type="button"
+                  class="accordion-toggle w-full flex justify-between items-center gap-2 py-4 px-2 text-left"
+                  data-accordion-toggle={i}
+                  aria-expanded={i === 0 ? "true" : "false"}
+                >
+                  <span class="flex items-baseline gap-3 min-w-0">
+                    <span class="text-body-md text-on-surface-variant/60 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                    <span class="text-label-caps truncate">{cat.label}</span>
                   </span>
-                ))}
+                  <span class="flex items-center gap-3 shrink-0">
+                    <span class="text-body-md text-on-surface-variant/60">{cat.items.length}</span>
+                    <span class="material-symbols-outlined accordion-icon text-primary" style="font-size: 20px" aria-hidden="true">
+                      {i === 0 ? "remove" : "add"}
+                    </span>
+                  </span>
+                </button>
+                <div class:list={["accordion-panel px-2 pb-6", { hidden: i !== 0 }]} data-accordion-panel={i}>
+                  <p class="text-body-md text-on-surface-variant mb-4">{cat.desc}</p>
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="w-6 h-px bg-primary-container" />
+                    <span class="text-label-caps text-on-surface-variant tracking-widest">
+                      {t("services.residente.miseEnPlace")}
+                    </span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    {cat.items.map((item) => (
+                      <span class="text-body-md text-on-background px-3 py-1.5 border border-outline-variant rounded">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
+
+        <div class="pt-8 flex flex-col items-center gap-3 text-center">
+          <WhatsAppLink
+            message={t("services.residente.whatsappMessage")}
+            class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded"
+          >
+            {t("services.residente.ctaGeneric")}
+          </WhatsAppLink>
+          <span class="text-body-md text-on-surface-variant italic">{t("services.residente.ctaNote")}</span>
+        </div>
       </div>
     </div>
 
@@ -218,5 +263,38 @@ const cartaItems = [
     });
   }
 
+  function initChefResidenteAccordion() {
+    const root = document.getElementById("chef-residente-mobile");
+    if (!root) return;
+
+    const toggles = Array.from(root.querySelectorAll<HTMLButtonElement>(".accordion-toggle"));
+    if (!toggles.length) return;
+
+    const setOpen = (index: number) => {
+      toggles.forEach((toggle) => {
+        const i = Number(toggle.dataset.accordionToggle);
+        const isOpen = i === index;
+        const item = toggle.closest("div");
+        const panel = item?.querySelector<HTMLElement>(`[data-accordion-panel="${i}"]`);
+        const icon = toggle.querySelector(".accordion-icon");
+
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        item?.classList.toggle("border-l-primary", isOpen);
+        item?.classList.toggle("border-l-transparent", !isOpen);
+        panel?.classList.toggle("hidden", !isOpen);
+        if (icon) icon.textContent = isOpen ? "remove" : "add";
+      });
+    };
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const index = Number(toggle.dataset.accordionToggle);
+        const isCurrentlyOpen = toggle.getAttribute("aria-expanded") === "true";
+        setOpen(isCurrentlyOpen ? -1 : index);
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", initChefResidente);
+  document.addEventListener("DOMContentLoaded", initChefResidenteAccordion);
 </script>
