@@ -3,6 +3,7 @@ import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
 import WhatsAppLink from "./ui/WhatsAppLink.astro";
 import ObfuscatedLink from "./ui/ObfuscatedLink.astro";
 import { EMAIL } from "../lib/contact";
+import { LEGAL_ADDRESS_LINE1, LEGAL_ADDRESS_LINE2, LEGAL_PHONE, LEGAL_PHONE_DISPLAY } from "../lib/legal";
 
 interface Props {
   lang: Lang;
@@ -12,6 +13,8 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
 const home = getLocalizedPath(lang, "/");
+const privacyPath = getLocalizedPath(lang, "/privacy");
+const termsPath = getLocalizedPath(lang, "/terms");
 ---
 
 <footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
@@ -66,6 +69,31 @@ const home = getLocalizedPath(lang, "/");
           {t("footer.email")}
         </ObfuscatedLink>
       </div>
+    </div>
+  </div>
+  <div
+    class="w-full px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto border-t border-outline-variant/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+  >
+    <p class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal">
+      {t("footer.legalEntity")} · {LEGAL_ADDRESS_LINE1}, {LEGAL_ADDRESS_LINE2} ·{" "}
+      <ObfuscatedLink scheme="tel" value={LEGAL_PHONE} class="hover:text-primary hover:underline underline-offset-4">
+        {LEGAL_PHONE_DISPLAY}
+      </ObfuscatedLink>
+      · {t("footer.legalJurisdiction")}
+    </p>
+    <div class="flex gap-6">
+      <a
+        class="text-label-caps text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 normal-case tracking-normal font-normal transition-all duration-200 ease-in-out"
+        href={privacyPath}
+      >
+        {t("footer.privacy")}
+      </a>
+      <a
+        class="text-label-caps text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 normal-case tracking-normal font-normal transition-all duration-200 ease-in-out"
+        href={termsPath}
+      >
+        {t("footer.terms")}
+      </a>
     </div>
   </div>
 </footer>

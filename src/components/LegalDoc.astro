@@ -1,0 +1,32 @@
+---
+import type { Lang } from "../i18n/utils";
+
+interface Section {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  lang: Lang;
+  title: string;
+  updated: string;
+  intro: string;
+  sections: Section[];
+}
+
+const { title, updated, intro, sections } = Astro.props;
+---
+
+<div class="max-w-3xl mx-auto py-section-gap px-margin-mobile md:px-margin-desktop">
+  <h1 class="text-headline-md text-on-background font-serif italic mb-2">{title}</h1>
+  <p class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal mb-10">{updated}</p>
+  <p class="text-body-md text-on-surface-variant mb-10">{intro}</p>
+  {
+    sections.map((section) => (
+      <section class="mb-8">
+        <h2 class="text-headline-sm text-on-background font-serif italic mb-3">{section.title}</h2>
+        <p class="text-body-md text-on-surface-variant">{section.body}</p>
+      </section>
+    ))
+  }
+</div>

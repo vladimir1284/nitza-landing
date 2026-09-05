@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import LegalDoc from "../../components/LegalDoc.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+---
+
+<Layout lang={lang} title={`${t("terms.title")} | Nitza Develop`} description={t("terms.intro")}>
+  <Header lang={lang} />
+  <main>
+    <LegalDoc
+      lang={lang}
+      title={t("terms.title")}
+      updated={t("terms.updated")}
+      intro={t("terms.intro")}
+      sections={[
+        { title: t("terms.ip.title"), body: t("terms.ip.body") },
+        { title: t("terms.liability.title"), body: t("terms.liability.body") },
+        { title: t("terms.law.title"), body: t("terms.law.body") },
+        { title: t("terms.changes.title"), body: t("terms.changes.body") },
+        { title: t("terms.contact.title"), body: t("terms.contact.body") },
+      ]}
+    />
+  </main>
+  <Footer lang={lang} />
+</Layout>

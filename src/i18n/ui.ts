@@ -199,23 +199,28 @@ export const ui = {
     "testimonials.cta": "Pedir Referencias",
     "testimonials.whatsappMessage": "Hola, me gustaría pedir referencias de proyectos anteriores de Nitza Develop.",
 
+    // PENDIENTE: identidad real = Ariel Casanova, CEO de Towit Houston (proyectos: software de gestión
+    // pa renta de trailers + Towit Links, VoIP sobre API de Twilio). Usando company/role genéricos hasta
+    // que apruebe el texto y autorice usar su nombre/logo. Ver memoria content-review-roadmap.
     "testimonials.quote1":
-      "La precisión técnica de su Brigada es comparable a una cocina de tres estrellas Michelin. Nitza Develop transformó nuestra infraestructura con una elegancia asombrosa.",
-    "testimonials.role1": "Dirección de Tecnología",
-    "testimonials.company1": "Grupo Retail",
-    "testimonials.tag1": "Migración de Sistemas Legados",
+      "Construyeron primero el sistema que gestiona nuestra flota de renta, y después la plataforma de VoIP que necesitábamos. Dos proyectos distintos, el mismo nivel de exigencia en ambos.",
+    "testimonials.role1": "CEO",
+    "testimonials.company1": "Cliente confidencial · Logística y Transporte",
+    "testimonials.tag1": "Software a la Medida",
 
     "testimonials.quote2":
-      "Su 'Cocina al Minuto' nos permitió validar nuestro producto en tiempo récord sin sacrificar ni un ápice de calidad visual.",
-    "testimonials.role2": "Fundadora",
-    "testimonials.company2": "Artvise",
-    "testimonials.tag2": "MVP y Prototipos",
+      "Después de 45 años trabajando con radares meteorológicos, no es fácil encontrar un equipo que entienda el dominio antes de escribir la primera línea de código. Con Nitza Develop construimos el software para procesar y visualizar esos datos.",
+    "testimonials.role2": "Meteorólogo e investigador",
+    "testimonials.company2": "Radares Mirando al Sur",
+    "testimonials.tag2": "Procesamiento y Visualización de Datos",
 
+    // PENDIENTE: identidad real = Dajer Abreu (migración de motor de comisiones, 20 años de lógica legacy,
+    // relación de 2.5 años). Company genérica hasta que apruebe el texto y autorice usar su nombre/logo.
     "testimonials.quote3":
-      "Entendieron el negocio antes de tocar el código. El reporte que antes tardaba una semana hoy se sirve en la mesa cada mañana.",
-    "testimonials.role3": "Gerencia de Operaciones",
-    "testimonials.company3": "Reseña pendiente de aprobación",
-    "testimonials.tag3": "Reportes y Datos",
+      "Entendieron el negocio antes de tocar el código, cuando migramos veinte años de lógica de comisiones sin margen de error. Hoy les seguimos confiando otras piezas del stack.",
+    "testimonials.role3": "Dirección de Tecnología",
+    "testimonials.company3": "Cliente confidencial · Consultoría y Redes de Distribución",
+    "testimonials.tag3": "Migración de Sistemas Legados",
 
     "blog.title": "Crónicas de la Cocina",
     "blog.subtitle":
@@ -248,8 +253,49 @@ export const ui = {
     "footer.contact": "Escríbanos",
     "footer.privateDining": "Atención Privada",
     "footer.email": "Escríbenos por correo",
+    "footer.privacy": "Privacidad",
+    "footer.terms": "Términos",
+    "footer.legalEntity": "NAUTACASA LLC · Nitza Develop",
+    "footer.legalAddress": "1409 Lexington Place, Elizabeth, NJ 07208, EE. UU.",
+    "footer.legalJurisdiction": "Jurisdicción: Estado de Nueva Jersey, EE. UU.",
 
     "cta.whatsappMessage": "Hola, quiero pedir una cata inicial.",
+
+    "privacy.title": "Política de Privacidad",
+    "privacy.updated": "Última actualización: 4 de septiembre de 2026",
+    "privacy.intro":
+      'Este sitio es operado por NAUTACASA LLC, con domicilio en 1409 Lexington Place, Elizabeth, NJ 07208, Estados Unidos, bajo el nombre comercial Nitza Develop ("nosotros"). Esta política explica qué datos recolectamos y cómo los usamos.',
+    "privacy.data.title": "Qué datos recolectamos",
+    "privacy.data.body":
+      "Cuando completa nuestro formulario de contacto recolectamos su nombre, correo electrónico y mensaje. Estos datos se envían directamente a nuestro equipo mediante un bot de Telegram y se usan únicamente para responder su consulta. No los vendemos ni compartimos con terceros.",
+    "privacy.analytics.title": "Analítica del sitio",
+    "privacy.analytics.body":
+      "Usamos Microsoft Clarity para entender cómo se navega el sitio (mapas de calor, grabaciones de sesión anónimas y estadísticas de uso). Clarity puede colocar cookies en su navegador. Microsoft procesa estos datos según su propia política de privacidad. No usamos esta información para identificarlo personalmente.",
+    "privacy.rights.title": "Sus derechos",
+    "privacy.rights.body":
+      "Puede solicitar acceso, corrección o eliminación de los datos que nos haya compartido escribiéndonos a hello@nitza.dev.",
+    "privacy.contact.title": "Contacto",
+    "privacy.contact.body":
+      "NAUTACASA LLC (Nitza Develop) — 1409 Lexington Place, Elizabeth, NJ 07208, EE. UU. — hello@nitza.dev",
+
+    "terms.title": "Términos de Servicio",
+    "terms.updated": "Última actualización: 4 de septiembre de 2026",
+    "terms.intro":
+      "Al usar este sitio usted acepta estos términos. Este sitio es informativo: describe los servicios de NAUTACASA LLC, operando bajo el nombre comercial Nitza Develop. El uso de este sitio no constituye por sí mismo un contrato de servicios; los proyectos se formalizan mediante un acuerdo firmado por separado.",
+    "terms.ip.title": "Propiedad intelectual",
+    "terms.ip.body":
+      "El contenido, marca, textos e imágenes de este sitio pertenecen a NAUTACASA LLC / Nitza Develop, salvo que se indique lo contrario, y no puede reproducirse sin autorización.",
+    "terms.liability.title": "Limitación de responsabilidad",
+    "terms.liability.body":
+      'Este sitio se ofrece "tal cual", sin garantías de ningún tipo. NAUTACASA LLC no será responsable por daños derivados del uso de este sitio, en la mayor medida permitida por la ley aplicable.',
+    "terms.law.title": "Ley aplicable",
+    "terms.law.body":
+      "Estos términos se rigen por las leyes del Estado de Nueva Jersey, Estados Unidos, sin perjuicio de sus normas de conflicto de leyes.",
+    "terms.changes.title": "Cambios a estos términos",
+    "terms.changes.body": "Podemos actualizar estos términos ocasionalmente. La fecha de última actualización aparece arriba.",
+    "terms.contact.title": "Contacto",
+    "terms.contact.body":
+      "NAUTACASA LLC (Nitza Develop) — 1409 Lexington Place, Elizabeth, NJ 07208, EE. UU. — hello@nitza.dev",
 
     "theme.toggle": "Cambiar tema",
     "lang.switch": "Switch to English",
@@ -447,23 +493,29 @@ export const ui = {
     "testimonials.cta": "Request References",
     "testimonials.whatsappMessage": "Hi, I'd like to request references from Nitza Develop's past projects.",
 
+    // PENDING: real identity = Ariel Casanova, CEO of Towit Houston (projects: custom trailer-rental
+    // management software + Towit Links, a Twilio-based VoIP platform). Generic company/role until he
+    // approves the wording and authorizes using his name/logo. See content-review-roadmap memory.
     "testimonials.quote1":
-      "The technical precision of their Brigade rivals a three-Michelin-star kitchen. Nitza Develop transformed our infrastructure with astonishing elegance.",
-    "testimonials.role1": "Technology Direction",
-    "testimonials.company1": "Grupo Retail",
-    "testimonials.tag1": "Legacy System Migration",
+      "They built the system that runs our rental fleet first, then the VoIP platform we needed. Two different projects, the same level of rigor on both.",
+    "testimonials.role1": "CEO",
+    "testimonials.company1": "Confidential client · Logistics & Transportation",
+    "testimonials.tag1": "Custom Software",
 
     "testimonials.quote2":
-      "Their 'Minute-Made Kitchen' let us validate our product in record time without sacrificing an ounce of visual quality.",
-    "testimonials.role2": "Founder",
-    "testimonials.company2": "Artvise",
-    "testimonials.tag2": "MVP & Prototyping",
+      "After 45 years working with weather radars, it's not easy to find a team that understands the domain before writing the first line of code. With Nitza Develop we built the software to process and visualize that data.",
+    "testimonials.role2": "Meteorologist & researcher",
+    "testimonials.company2": "Radares Mirando al Sur",
+    "testimonials.tag2": "Data Processing & Visualization",
+
+    // PENDING: real identity = Dajer Abreu (commission engine migration, 20 years of legacy logic,
+    // 2.5-year relationship). Generic company until he approves the wording and authorizes his name/logo.
 
     "testimonials.quote3":
-      "They understood the business before touching the code. The report that used to take a week is now served at the table every morning.",
-    "testimonials.role3": "Operations Management",
-    "testimonials.company3": "Review pending approval",
-    "testimonials.tag3": "Reporting & Data",
+      "They understood the business before touching the code, when we migrated twenty years of commission logic with no room for error. We still trust them with other pieces of our stack today.",
+    "testimonials.role3": "Technology Direction",
+    "testimonials.company3": "Confidential client · Consulting & Distribution Networks",
+    "testimonials.tag3": "Legacy System Migration",
 
     "blog.title": "Chronicles of the Kitchen",
     "blog.subtitle":
@@ -495,8 +547,49 @@ export const ui = {
     "footer.contact": "Get in Touch",
     "footer.privateDining": "Private Dining",
     "footer.email": "Email us",
+    "footer.privacy": "Privacy",
+    "footer.terms": "Terms",
+    "footer.legalEntity": "NAUTACASA LLC · Nitza Develop",
+    "footer.legalAddress": "1409 Lexington Place, Elizabeth, NJ 07208, USA",
+    "footer.legalJurisdiction": "Jurisdiction: State of New Jersey, USA",
 
     "cta.whatsappMessage": "Hi, I'd like to book an initial tasting.",
+
+    "privacy.title": "Privacy Policy",
+    "privacy.updated": "Last updated: September 4, 2026",
+    "privacy.intro":
+      'This site is operated by NAUTACASA LLC, located at 1409 Lexington Place, Elizabeth, NJ 07208, United States, doing business as Nitza Develop ("we", "us"). This policy explains what data we collect and how we use it.',
+    "privacy.data.title": "What we collect",
+    "privacy.data.body":
+      "When you submit our contact form, we collect your name, email, and message. This data is sent directly to our team through a Telegram bot and used only to respond to your inquiry. We do not sell or share it with third parties.",
+    "privacy.analytics.title": "Site analytics",
+    "privacy.analytics.body":
+      "We use Microsoft Clarity to understand how the site is used (heatmaps, anonymized session recordings, and usage statistics). Clarity may place cookies in your browser. Microsoft processes this data under its own privacy policy. We do not use this data to identify you personally.",
+    "privacy.rights.title": "Your rights",
+    "privacy.rights.body":
+      "You can request access to, correction of, or deletion of data you've shared with us by emailing hello@nitza.dev.",
+    "privacy.contact.title": "Contact",
+    "privacy.contact.body":
+      "NAUTACASA LLC (Nitza Develop) — 1409 Lexington Place, Elizabeth, NJ 07208, USA — hello@nitza.dev",
+
+    "terms.title": "Terms of Service",
+    "terms.updated": "Last updated: September 4, 2026",
+    "terms.intro":
+      "By using this site you accept these terms. This site is informational: it describes the services of NAUTACASA LLC, operating under the trade name Nitza Develop. Using this site does not by itself create a service contract; projects are formalized through a separately signed agreement.",
+    "terms.ip.title": "Intellectual property",
+    "terms.ip.body":
+      "The content, branding, text, and images on this site belong to NAUTACASA LLC / Nitza Develop unless otherwise noted, and may not be reproduced without permission.",
+    "terms.liability.title": "Limitation of liability",
+    "terms.liability.body":
+      'This site is provided "as is", without warranties of any kind. NAUTACASA LLC is not liable for damages arising from use of this site, to the fullest extent permitted by applicable law.',
+    "terms.law.title": "Governing law",
+    "terms.law.body":
+      "These terms are governed by the laws of the State of New Jersey, United States, without regard to its conflict-of-laws principles.",
+    "terms.changes.title": "Changes to these terms",
+    "terms.changes.body": "We may update these terms from time to time. The last-updated date appears above.",
+    "terms.contact.title": "Contact",
+    "terms.contact.body":
+      "NAUTACASA LLC (Nitza Develop) — 1409 Lexington Place, Elizabeth, NJ 07208, USA — hello@nitza.dev",
 
     "theme.toggle": "Toggle theme",
     "lang.switch": "Cambiar a Español",

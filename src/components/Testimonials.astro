@@ -1,6 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "../i18n/utils";
 import WhatsAppLink from "./ui/WhatsAppLink.astro";
+import arielAvatar from "../assets/images/testimonials/ariel.jpeg";
+import orlandoAvatar from "../assets/images/testimonials/orlando.jpeg";
+import dajerAvatar from "../assets/images/testimonials/dajer.jpeg";
 
 interface Props {
   lang: Lang;
@@ -15,13 +19,15 @@ const testimonials = [
     role: t("testimonials.role1"),
     company: t("testimonials.company1"),
     tag: t("testimonials.tag1"),
-    pending: false,
+    avatar: arielAvatar,
+    pending: true, // consentimiento de nombre/logo pendiente — ver comentario junto a testimonials.quote1 en ui.ts
   },
   {
     quote: t("testimonials.quote2"),
     role: t("testimonials.role2"),
     company: t("testimonials.company2"),
     tag: t("testimonials.tag2"),
+    avatar: orlandoAvatar,
     pending: false,
   },
   {
@@ -29,7 +35,8 @@ const testimonials = [
     role: t("testimonials.role3"),
     company: t("testimonials.company3"),
     tag: t("testimonials.tag3"),
-    pending: true,
+    avatar: dajerAvatar,
+    pending: true, // consentimiento de nombre/logo pendiente — ver comentario junto a testimonials.quote3 en ui.ts
   },
 ];
 ---
@@ -70,7 +77,16 @@ const testimonials = [
           />
 
           <div class="flex items-center gap-4 pt-6 border-t border-outline-variant/30 mt-auto">
-            <div class="w-14 h-14 rounded-full bg-surface-container-high border border-outline-variant/60 shrink-0" aria-hidden="true" />
+            <div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant/60 shrink-0 bg-surface-container-high">
+              <Image
+                src={item.avatar}
+                alt={`${item.role} — ${item.company}`}
+                class="w-full h-full object-cover"
+                width={112}
+                height={112}
+                loading="lazy"
+              />
+            </div>
             <div class="min-w-0 flex-1">
               <cite class="text-label-caps text-on-background not-italic block truncate" title={item.role}>{item.role}</cite>
               <p
