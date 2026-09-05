@@ -19,14 +19,14 @@ const blog = defineCollection({
 
 const portfolio = defineCollection({
   loader: glob({ base: "./src/content/portfolio", pattern: "**/*.md" }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       shortDescription: z.string(),
       lang: z.enum(["es", "en"]).default("es"),
       pubDate: z.coerce.date(),
       stack: z.array(z.string()),
-      gallery: z.array(z.string().url()),
+      gallery: z.array(image()),
       featured: z.boolean().default(false),
     }),
 });

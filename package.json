@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "portfolio:images": "node scripts/optimize-portfolio-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

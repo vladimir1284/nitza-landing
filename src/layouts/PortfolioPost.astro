@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -29,7 +30,7 @@ const [coverImage, ...restGallery] = gallery;
       {
         coverImage && (
           <div class="max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-outline-variant/30 aspect-video">
-            <img alt={title} class="w-full h-full object-cover" src={coverImage} />
+            <Image src={coverImage} alt={title} class="w-full h-full object-cover" width={1200} height={675} />
           </div>
         )
       }
@@ -55,14 +56,14 @@ const [coverImage, ...restGallery] = gallery;
       {
         restGallery.length > 0 && (
           <div class="max-w-4xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
-            {restGallery.map((image) => (
+            {restGallery.map((galleryImage) => (
               <a
-                href={image}
+                href={galleryImage.src}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="aspect-video overflow-hidden rounded-lg border border-outline-variant/30 block"
               >
-                <img alt={title} class="w-full h-full object-cover" src={image} loading="lazy" />
+                <Image src={galleryImage} alt={title} class="w-full h-full object-cover" width={800} height={450} loading="lazy" />
               </a>
             ))}
           </div>
