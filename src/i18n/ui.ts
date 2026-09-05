@@ -17,6 +17,8 @@ export const ui = {
     "nav.menu": "Menú",
     "nav.tech": "Ingredientes",
     "nav.blog": "Crónicas",
+    "nav.testimonials": "Reseñas",
+    "nav.faq": "Preguntas",
     "nav.reserve": "Reserve",
 
     "hero.kicker": "Cocina de software a la carta",
@@ -311,6 +313,8 @@ export const ui = {
     "nav.menu": "Menu",
     "nav.tech": "Ingredients",
     "nav.blog": "Chronicles",
+    "nav.testimonials": "Reviews",
+    "nav.faq": "FAQ",
     "nav.reserve": "Reserve",
 
     "hero.kicker": "Software cuisine, à la carte",
