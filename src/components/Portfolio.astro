@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const portfolioHome = getLocalizedPath(lang, "/portfolio");
+
+const allProjects = await getCollection("portfolio", (project) => project.data.lang === lang);
+const featured = allProjects.filter((project) => project.data.featured);
+const projects = (featured.length > 0 ? featured : allProjects)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const projectUrl = (id: string) => `${portfolioHome}/${id.replace(/-en$/, "")}`;
+---
+
+<section class="py-section-gap border-t border-outline-variant/30" id="portfolio">
+  <div class="w-full">
+    <div class="text-center mb-16">
+      <h2 class="text-headline-md text-on-background font-serif italic">{t("portfolio.title")}</h2>
+      <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+      <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("portfolio.subtitle")}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      {
+        projects.map((project) => (
+          <div class="flex flex-col group">
+            <a href={projectUrl(project.id)} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
+              {project.data.gallery[0] && (
+                <img
+                  alt={project.data.title}
+                  class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                  src={project.data.gallery[0]}
+                  loading="lazy"
+                />
+              )}
+            </a>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {project.data.stack.map((item) => (
+                <span class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal border border-outline-variant/40 rounded-full px-3 py-1">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <h3
+              class="text-headline-sm text-on-background mb-4"
+              set:html={project.data.title.replace("Nitza Develop", '<span class="font-script text-[1.1em] font-normal">Nitza Develop</span>')}
+            />
+            <p class="text-body-md text-on-surface-variant mb-6 grow">{project.data.shortDescription}</p>
+            <a
+              class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
+              href={projectUrl(project.id)}
+            >
+              {t("portfolio.viewProject")}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+    <div class="text-center mt-16">
+      <a
+        href={portfolioHome}
+        class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 rounded"
+      >
+        {t("portfolio.viewAll")}
+      </a>
+    </div>
+  </div>
+</section>

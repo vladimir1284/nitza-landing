@@ -1,0 +1,132 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../i18n/utils";
+
+type Props = CollectionEntry<"portfolio">["data"];
+
+const { title, shortDescription, stack, gallery, lang } = Astro.props;
+const t = useTranslations(lang);
+const portfolioHome = getLocalizedPath(lang, "/portfolio");
+const [coverImage, ...restGallery] = gallery;
+---
+
+<Layout lang={lang} title={`${title} | Nitza Develop`} description={shortDescription}>
+  <Header lang={lang} />
+  <article class="py-section-gap">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-3xl mx-auto mb-10">
+        <a
+          href={portfolioHome}
+          class="text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300"
+        >
+          {t("portfolio.back")}
+        </a>
+      </div>
+
+      {
+        coverImage && (
+          <div class="max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-outline-variant/30 aspect-video">
+            <img alt={title} class="w-full h-full object-cover" src={coverImage} />
+          </div>
+        )
+      }
+
+      <header class="max-w-3xl mx-auto mb-12 text-center">
+        <h1
+          class="text-headline-md md:text-display-lg-mobile text-on-background font-serif italic mb-6"
+          set:html={title.replace("Nitza Develop", '<span class="font-script not-italic text-[1.1em] font-normal">Nitza Develop</span>')}
+        />
+        <div class="flex flex-wrap justify-center gap-2">
+          {stack.map((item) => (
+            <span class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal border border-outline-variant/40 rounded-full px-3 py-1">
+              {item}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <div class="max-w-3xl mx-auto prose-blog">
+        <slot />
+      </div>
+
+      {
+        restGallery.length > 0 && (
+          <div class="max-w-4xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+            {restGallery.map((image) => (
+              <a
+                href={image}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="aspect-video overflow-hidden rounded-lg border border-outline-variant/30 block"
+              >
+                <img alt={title} class="w-full h-full object-cover" src={image} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </article>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .prose-blog :global(p) {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-on-surface-variant);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .prose-blog :global(h2) {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: var(--color-on-background);
+    margin: 3rem 0 1rem 0;
+  }
+
+  .prose-blog :global(h3) {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+    color: var(--color-on-background);
+    margin: 2.5rem 0 0.75rem 0;
+  }
+
+  .prose-blog :global(ul),
+  .prose-blog :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    color: var(--color-on-surface-variant);
+  }
+
+  .prose-blog :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-blog :global(strong) {
+    color: var(--color-on-background);
+    font-weight: 600;
+  }
+
+  .prose-blog :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-blog :global(blockquote) {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--color-primary);
+    font-style: italic;
+    color: var(--color-on-surface-variant);
+  }
+</style>

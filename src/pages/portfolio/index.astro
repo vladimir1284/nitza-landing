@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PortfolioCard from "../../components/PortfolioCard.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "es";
+const t = useTranslations(lang);
+
+const projects = (await getCollection("portfolio", (project) => project.data.lang === lang)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout lang={lang} title={`${t("portfolio.title")} | Nitza Develop`} description={t("portfolio.subtitle")}>
+  <Header lang={lang} />
+  <main class="py-section-gap">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16">
+        <h1 class="text-headline-md text-on-background font-serif italic">{t("portfolio.title")}</h1>
+        <div class="w-12 h-px bg-primary mx-auto mt-4"></div>
+        <p class="text-body-md text-on-surface-variant mt-8 max-w-2xl mx-auto">{t("portfolio.subtitle")}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        {
+          projects.map((project) => (
+            <PortfolioCard
+              title={project.data.title}
+              shortDescription={project.data.shortDescription}
+              stack={project.data.stack}
+              url={`/portfolio/${project.id}`}
+              coverImage={project.data.gallery[0]}
+              lang={lang}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</Layout>

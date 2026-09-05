@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from "astro:content";
+import PortfolioPost from "../../../layouts/PortfolioPost.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("portfolio", (project) => project.data.lang === "en");
+  return projects.map((project) => ({
+    params: { slug: project.id.replace(/-en$/, "") },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<PortfolioPost {...project.data}>
+  <Content />
+</PortfolioPost>

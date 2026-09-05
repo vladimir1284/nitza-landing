@@ -17,6 +17,7 @@ const home = getLocalizedPath(lang, "/");
 const privacyPath = getLocalizedPath(lang, "/privacy");
 const termsPath = getLocalizedPath(lang, "/terms");
 const blogPath = getLocalizedPath(lang, "/blog");
+const portfolioPath = getLocalizedPath(lang, "/portfolio");
 ---
 
 <footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
@@ -61,6 +62,12 @@ const blogPath = getLocalizedPath(lang, "/blog");
           href={blogPath}
         >
           {t("nav.blog")}
+        </a>
+        <a
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href={portfolioPath}
+        >
+          {t("nav.portfolio")}
         </a>
       </div>
       <div class="flex flex-col gap-4">

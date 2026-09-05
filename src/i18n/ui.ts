@@ -17,6 +17,7 @@ export const ui = {
     "nav.menu": "Menú",
     "nav.tech": "Ingredientes",
     "nav.blog": "Crónicas",
+    "nav.portfolio": "Recetario",
     "nav.testimonials": "Reseñas",
     "nav.faq": "Preguntas",
     "nav.reserve": "Reserve",
@@ -234,6 +235,13 @@ export const ui = {
     "blog.updated": "Actualizado",
     "blog.category.nota-de-cata": "Nota de Cata",
 
+    "portfolio.title": "Recetario",
+    "portfolio.subtitle":
+      "Proyectos que hemos cocinado para clientes reales: el stack, el problema y el resultado.",
+    "portfolio.viewProject": "Ver proyecto",
+    "portfolio.viewAll": "Ver recetario completo",
+    "portfolio.back": "← Volver al Recetario",
+
     "contact.title": "Escríbanos",
     "contact.subtitle": "¿Prefiere dejarnos su consulta por escrito? Respondemos en menos de 24 horas.",
     "contact.name.label": "Nombre",
@@ -313,6 +321,7 @@ export const ui = {
     "nav.menu": "Menu",
     "nav.tech": "Ingredients",
     "nav.blog": "Chronicles",
+    "nav.portfolio": "Recipe Book",
     "nav.testimonials": "Reviews",
     "nav.faq": "FAQ",
     "nav.reserve": "Reserve",
@@ -530,6 +539,13 @@ export const ui = {
     "blog.minRead": "min read",
     "blog.updated": "Updated",
     "blog.category.nota-de-cata": "Tasting Note",
+
+    "portfolio.title": "Recipe Book",
+    "portfolio.subtitle":
+      "Projects we've cooked for real clients: the stack, the problem, and the result.",
+    "portfolio.viewProject": "View project",
+    "portfolio.viewAll": "View full recipe book",
+    "portfolio.back": "← Back to the Recipe Book",
 
     "contact.title": "Get in Touch",
     "contact.subtitle": "Prefer to write instead? We reply within 24 hours.",

@@ -1,0 +1,53 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  title: string;
+  shortDescription: string;
+  stack: string[];
+  url: string;
+  coverImage?: string;
+  lang?: Lang;
+}
+
+const { title, shortDescription, stack, url, coverImage, lang = "es" } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<article class="flex flex-col group">
+  <a href={url} class="aspect-video mb-6 overflow-hidden rounded-lg border border-outline-variant/30 block">
+    {
+      coverImage && (
+        <img
+          alt={title}
+          class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+          src={coverImage}
+          loading="lazy"
+        />
+      )
+    }
+  </a>
+  <div class="flex flex-wrap gap-2 mb-3">
+    {
+      stack.map((item) => (
+        <span class="text-label-caps text-on-surface-variant/70 normal-case tracking-normal font-normal border border-outline-variant/40 rounded-full px-3 py-1">
+          {item}
+        </span>
+      ))
+    }
+  </div>
+  <h3 class="text-headline-sm text-on-background mb-2">
+    <a
+      href={url}
+      class="hover:text-primary transition-colors duration-300"
+      set:html={title.replace("Nitza Develop", '<span class="font-script text-[1.1em] font-normal">Nitza Develop</span>')}
+    />
+  </h3>
+  <p class="text-body-md text-on-surface-variant mb-6 grow">{shortDescription}</p>
+  <a
+    class="text-label-caps text-on-background border-b border-primary pb-1 self-start hover:text-primary transition-colors duration-300"
+    href={url}
+  >
+    {t("portfolio.viewProject")}
+  </a>
+</article>
