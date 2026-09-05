@@ -2,6 +2,7 @@
 import { useTranslations, getLocalizedPath, type Lang } from "../i18n/utils";
 import WhatsAppLink from "./ui/WhatsAppLink.astro";
 import ObfuscatedLink from "./ui/ObfuscatedLink.astro";
+import SocialIcons from "./ui/SocialIcons.astro";
 import { EMAIL } from "../lib/contact";
 import { LEGAL_ADDRESS_LINE1, LEGAL_ADDRESS_LINE2, LEGAL_PHONE, LEGAL_PHONE_DISPLAY } from "../lib/legal";
 
@@ -15,6 +16,7 @@ const year = new Date().getFullYear();
 const home = getLocalizedPath(lang, "/");
 const privacyPath = getLocalizedPath(lang, "/privacy");
 const termsPath = getLocalizedPath(lang, "/terms");
+const blogPath = getLocalizedPath(lang, "/blog");
 ---
 
 <footer class="w-full bg-surface-container-highest border-t border-outline-variant/50">
@@ -32,6 +34,7 @@ const termsPath = getLocalizedPath(lang, "/terms");
           .replace("{year}", String(year))
           .replace("Nitza Develop", '<span class="font-script text-[1.15em] font-normal">Nitza Develop</span>')}
       ></p>
+      <SocialIcons class="mt-6" />
     </div>
     <div class="flex flex-col md:flex-row gap-8 md:gap-16">
       <div class="flex flex-col gap-4">
@@ -52,6 +55,12 @@ const termsPath = getLocalizedPath(lang, "/terms");
           href={`${home}#contact`}
         >
           {t("footer.contact")}
+        </a>
+        <a
+          class="text-body-md text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+          href={blogPath}
+        >
+          {t("nav.blog")}
         </a>
       </div>
       <div class="flex flex-col gap-4">

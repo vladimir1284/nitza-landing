@@ -1,0 +1,50 @@
+---
+import { SOCIAL_LINKS, WHATSAPP_NUMBER } from "../../lib/contact";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const links = [
+  { key: "linkedin", href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
+  { key: "whatsapp", href: `https://wa.me/${WHATSAPP_NUMBER}`, label: "WhatsApp" },
+  { key: "telegram", href: `https://t.me/+${WHATSAPP_NUMBER}`, label: "Telegram" },
+  { key: "x", href: SOCIAL_LINKS.x, label: "X" },
+  { key: "facebook", href: SOCIAL_LINKS.facebook, label: "Facebook" },
+  { key: "tiktok", href: SOCIAL_LINKS.tiktok, label: "TikTok" },
+];
+
+const icons: Record<string, string> = {
+  linkedin:
+    "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05C21.9 8.59 23 11 23 14.7V21h-4v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95V21h-4V9z",
+  whatsapp:
+    "M17.5 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.63.14-.19.28-.72.91-.89 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.75-1.4-1.67-1.56-1.95-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.63-1.53-.87-2.1-.23-.55-.46-.48-.63-.49-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.4 0 1.41 1.03 2.78 1.17 2.97.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.32.19 1.81.11.55-.08 1.66-.68 1.9-1.33.23-.66.23-1.22.16-1.33-.07-.12-.26-.19-.54-.33zM12.02 2C6.5 2 2 6.48 2 12c0 1.87.51 3.62 1.4 5.13L2 22l4.99-1.35A9.96 9.96 0 0 0 12.02 22C17.55 22 22 17.52 22 12S17.55 2 12.02 2z",
+  telegram:
+    "M21.9 4.6 3.7 11.7c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.1-2 4.4 3.2c.8.5 1.4.2 1.6-.7l2.9-13.7c.3-1.2-.4-1.7-1.4-1.5zM8.9 14.3 18 8.6c.4-.3.8 0 .5.3L11 15.8l-.3 3.1-1.8-4.6z",
+  x: "M18.9 3H22l-7.2 8.2L23 21h-6.9l-5.4-6.7L4.4 21H1.3l7.7-8.8L1 3h7l4.9 6.1L18.9 3zM17.7 19h1.9L6.4 5H4.4L17.7 19z",
+  facebook:
+    "M13.5 21v-7.9h2.7l.4-3.1h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.7v3.1h2.7V21h3.1z",
+  tiktok:
+    "M16.6 2h-3v13.4c0 1.3-1.1 2.4-2.4 2.4a2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.3 0 .5 0 .8.1v-3.1c-.3 0-.5-.1-.8-.1a5.5 5.5 0 0 0-5.5 5.5 5.5 5.5 0 0 0 5.5 5.5 5.5 5.5 0 0 0 5.5-5.5V8.6c1.1.8 2.5 1.3 4 1.3V6.9c-2.1 0-3.9-1.7-4.1-3.9V2z",
+};
+---
+
+<div class={`flex items-center gap-4 ${className ?? ""}`}>
+  {
+    links.map(({ key, href, label }) => (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        class="text-on-surface-variant hover:text-primary transition-colors duration-200 ease-in-out"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d={icons[key]} />
+        </svg>
+      </a>
+    ))
+  }
+</div>
