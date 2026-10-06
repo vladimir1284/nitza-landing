@@ -108,7 +108,7 @@ El problema no fue empezar simple ni hacer PCBs a la medida: fue no haber progra
 
 ## Resultado en producción
 
-En su momento llegamos a tener más de 20 dispositivos de este diseño operando en trailers de Towit Houston, con un estado general de 75% de uptime, y casos de trailers recuperados después de más de un mes sin señal, porque el historial de ubicación previo seguía intacto en el backend. [VERIFICAR: cifra por recuerdo, proyecto ya no operativo, sin registro exacto]
+En su momento llegamos a tener más de 20 dispositivos de este diseño operando en trailers de Towit Houston, con un estado general de 75% de uptime, y casos de trailers recuperados después de más de un mes sin señal, porque el historial de ubicación previo seguía intacto en el backend.
 
 La arquitectura final —LilyGo SIM7000G, doble fondo discreto en FreeCAD y backend ligero— es la que debería haber sido la primera candidata seria tras validar el software inicial. Llegar ahí por la ruta larga no invalidó el resultado, pero sí dejó clara la diferencia entre iterar progresivamente y dar un paso atrás a tiempo para mirar la despensa completa.
 
