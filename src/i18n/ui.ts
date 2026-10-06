@@ -150,6 +150,11 @@ export const ui = {
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL, Metabase, Jupyter Notebooks",
     "services.cat.data.desc":
       "Modelado, reportes y pipelines sobre su stack de datos existente, con un especialista integrado a su equipo analítico.",
+    "services.cat.hardware": "Hardware e IoT",
+    "services.cat.hardware.items":
+      "ESP32, Arduino, Diseño de PCB, FreeCAD, GPS/GSM, Regulación de bajo consumo",
+    "services.cat.hardware.desc":
+      "Hardware embebido y firmware a medida, de prototipo a PCB propia, con un ingeniero de hardware integrado a su equipo.",
     "services.cat.devops": "DevOps y Cloud",
     "services.cat.devops.items":
       "Docker, Swarm, AWS, Cloudflare, Jenkins, GitHub Actions, Azure DevOps, GitLab",
@@ -454,6 +459,11 @@ export const ui = {
     "services.cat.data.items": "SQL Server, ClickHouse, PostgreSQL, Metabase, Jupyter Notebooks",
     "services.cat.data.desc":
       "Modeling, reporting, and pipelines on your existing data stack, with a specialist embedded in your analytics team.",
+    "services.cat.hardware": "Hardware & IoT",
+    "services.cat.hardware.items":
+      "ESP32, Arduino, PCB Design, FreeCAD, GPS/GSM, Low-Power Regulation",
+    "services.cat.hardware.desc":
+      "Embedded hardware and custom firmware, from prototype to in-house PCB, with a hardware engineer embedded in your team.",
     "services.cat.devops": "DevOps & Cloud",
     "services.cat.devops.items":
       "Docker, Swarm, AWS, Cloudflare, Jenkins, GitHub Actions, Azure DevOps, GitLab",
